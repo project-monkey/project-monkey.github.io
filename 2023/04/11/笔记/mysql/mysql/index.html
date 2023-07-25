@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、表连接![image-20230411174555240](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230411174555240.png) 二、排序和分段1.利用:&#x3D;（赋值等号）号进行排名，@rank&#x3D;@rank+1为先执行@r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/04/11/%E7%AC%94%E8%AE%B0/mysql/mysql/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、表连接![image-20230411174555240](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230411174555240.png) 二、排序和分段1.利用:&#x3D;（赋值等号）号进行排名，@rank&#x3D;@rank+1为先执行@r">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-11T09:45:31.058Z">
+<meta property="article:modified_time" content="2023-04-12T09:59:09.577Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记/mysql/mysql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/11/%E7%AC%94%E8%AE%B0/mysql/mysql/" class="article-date">
+  <time class="dt-published" datetime="2023-04-11T09:45:31.058Z" itemprop="datePublished">2023-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、表连接"><a href="#一、表连接" class="headerlink" title="一、表连接"></a>一、表连接</h2><p>![image-20230411174555240](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230411174555240.png)</p>
+<h2 id="二、排序和分段"><a href="#二、排序和分段" class="headerlink" title="二、排序和分段"></a>二、排序和分段</h2><h3 id="1-利用-（赋值等号）号进行排名，-rank-rank-1为先执行-rank，然后再把值赋给-rank"><a href="#1-利用-（赋值等号）号进行排名，-rank-rank-1为先执行-rank，然后再把值赋给-rank" class="headerlink" title="1.利用:=（赋值等号）号进行排名，@rank=@rank+1为先执行@rank，然后再把值赋给@rank"></a>1.利用<code>:=</code>（赋值等号）号进行排名，<code>@rank=@rank+1</code>为先执行<code>@rank</code>，然后再把值赋给<code>@rank</code></h3><ul>
+<li>这里的<code>@rank</code>中的<code>@</code>表明<code>rank</code>是一个用户变量，如果不加<code>@</code>则会和系统变量<code>rank</code>发生冲突报错</li>
+<li>当然，变量名称是可以自己更改的，如果想不重名，直接使用<code>rk</code>代替<code>@rank</code>也是可以的</li>
+</ul>
+<p>举例：按照<code>score</code>字段对<code>studuent</code>表进行排名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	t.*, @rank := @rank + 1 AS 排名</span><br><span class="line">FROM</span><br><span class="line">	(SELECT @rank := 0) r,</span><br><span class="line">	(</span><br><span class="line">		SELECT</span><br><span class="line">			*</span><br><span class="line">		FROM</span><br><span class="line">			student</span><br><span class="line">		ORDER BY</span><br><span class="line">			score DESC</span><br><span class="line">	) AS t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>举例2：按照<code>value</code>对<code>score_record</code>表进行排名，并查出排第<code>20名</code>的人</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM(</span><br><span class="line">	SELECT</span><br><span class="line">		t.*, @rank := @rank + 1 AS 排名</span><br><span class="line">	FROM</span><br><span class="line">		(SELECT @rank := 0) r,</span><br><span class="line">		(</span><br><span class="line">			SELECT</span><br><span class="line">				*</span><br><span class="line">			FROM</span><br><span class="line">				score_record</span><br><span class="line">			ORDER BY</span><br><span class="line">				value DESC</span><br><span class="line">		) AS t</span><br><span class="line">	) as rk</span><br><span class="line">WHERE rk.`排名`=20;</span><br></pre></td></tr></table></figure>
+
+<p>现在稍加改进，我们查出排名为<code>前20%</code>分数线的那个人的分数</p>
+<p>如果取20%不是整数，则向上取整（使用<code>ceiling(x)</code>函数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM(</span><br><span class="line">	SELECT</span><br><span class="line">		t.*, @ra := @ra + 1 AS 排名</span><br><span class="line">	FROM</span><br><span class="line">		(SELECT @ra := 0) r,</span><br><span class="line">		(</span><br><span class="line">			SELECT</span><br><span class="line">				*</span><br><span class="line">			FROM</span><br><span class="line">				score_record</span><br><span class="line">			ORDER BY</span><br><span class="line">				value DESC</span><br><span class="line">		) AS t</span><br><span class="line">	) as rk</span><br><span class="line">WHERE rk.`排名`= ceiling((select count(*) from score_record )* 0.2);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、查询、子查询、虚表"><a href="#三、查询、子查询、虚表" class="headerlink" title="三、查询、子查询、虚表"></a>三、查询、子查询、虚表</h2><h3 id="1-子查询"><a href="#1-子查询" class="headerlink" title="1.子查询"></a>1.子查询</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.*, @rank := @rank + 1 AS 排名</span><br><span class="line">FROM (SELECT @rank := 0) r, (</span><br><span class="line">  SELECT * FROM score_record ORDER BY value DESC</span><br><span class="line">) AS t</span><br></pre></td></tr></table></figure>
+
+
+
+<p>举例：按照<code>value</code>对<code>score_record</code>表进行排名，并查出排第<code>20名</code>的人</p>
+<p>其中先通过一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM(</span><br><span class="line">	SELECT</span><br><span class="line">		t.*, @rank := @rank + 1 AS 排名</span><br><span class="line">	FROM</span><br><span class="line">		(SELECT @rank := 0) r,</span><br><span class="line">		(</span><br><span class="line">			SELECT</span><br><span class="line">				*</span><br><span class="line">			FROM</span><br><span class="line">				score_record</span><br><span class="line">			ORDER BY</span><br><span class="line">				value DESC</span><br><span class="line">		) AS t</span><br><span class="line">	) as rk</span><br><span class="line">WHERE rk.`排名`=20;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="四、mysql变量"><a href="#四、mysql变量" class="headerlink" title="四、mysql变量"></a>四、mysql变量</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/11/%E7%AC%94%E8%AE%B0/mysql/mysql/" data-id="clkhmtkfh000ehbfy4cwffjc4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/11/%E7%AC%94%E8%AE%B0/python/python%E5%9F%BA%E7%A1%80/python%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/10/%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

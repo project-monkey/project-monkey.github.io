@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Docker后端部署文档部署需求 zssr后端代码部署 三个数据库的部署和数据迁移  方案方案1：直接登录docker账户并复制现有的镜像，再生成容器 方案2：手动拉取镜像，迁移数据库，并生成容器 方案1步骤1：登录docker123456docker login &lt;仓库地址&gt;docker login 2649706356@qq.com# 之后需要输入账户名和密码# 我的账户名和密码分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/26/%E7%AC%94%E8%AE%B0/docker/docker%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Docker后端部署文档部署需求 zssr后端代码部署 三个数据库的部署和数据迁移  方案方案1：直接登录docker账户并复制现有的镜像，再生成容器 方案2：手动拉取镜像，迁移数据库，并生成容器 方案1步骤1：登录docker123456docker login &lt;仓库地址&gt;docker login 2649706356@qq.com# 之后需要输入账户名和密码# 我的账户名和密码分">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-26T03:44:55.502Z">
+<meta property="article:modified_time" content="2023-05-27T10:01:27.671Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记/docker/docker部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/26/%E7%AC%94%E8%AE%B0/docker/docker%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time class="dt-published" datetime="2023-05-26T03:44:55.502Z" itemprop="datePublished">2023-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Docker后端部署文档"><a href="#Docker后端部署文档" class="headerlink" title="Docker后端部署文档"></a>Docker后端部署文档</h2><h2 id="部署需求"><a href="#部署需求" class="headerlink" title="部署需求"></a>部署需求</h2><ul>
+<li>zssr后端代码部署</li>
+<li>三个数据库的部署和数据迁移</li>
+</ul>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>方案1：直接登录docker账户并复制现有的镜像，再生成容器</p>
+<p>方案2：手动拉取镜像，迁移数据库，并生成容器</p>
+<h2 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h2><h3 id="步骤1：登录docker"><a href="#步骤1：登录docker" class="headerlink" title="步骤1：登录docker"></a>步骤1：登录docker</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker login &lt;仓库地址&gt;</span><br><span class="line">docker login 2649706356@qq.com</span><br><span class="line"><span class="comment"># 之后需要输入账户名和密码</span></span><br><span class="line"><span class="comment"># 我的账户名和密码分别是：</span></span><br><span class="line">tianhaoran</span><br><span class="line">thr970726</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤2：拉取docker中三个数据库的镜像"><a href="#步骤2：拉取docker中三个数据库的镜像" class="headerlink" title="步骤2：拉取docker中三个数据库的镜像"></a>步骤2：拉取docker中三个数据库的镜像</h3><p>拉取mysql镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tianhaoran/zssr_mysql:<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>拉取mongo镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 步骤2.5：如果想要自己上传镜像</span><br><span class="line"></span><br><span class="line">先将本地现有的容器生成为镜像：</span><br><span class="line"></span><br><span class="line">镜像名通常为`账户/镜像`，比如`tianhaoran/mysql_zssr`，标签即为镜像tag</span><br><span class="line"></span><br><span class="line">```sh</span><br><span class="line"># 通用格式</span><br><span class="line">docker commit &lt;容器ID&gt; &lt;镜像名&gt;:&lt;标签&gt;</span><br><span class="line"># 举例：</span><br><span class="line">docker commit 1341bc32e681cd65a601b7da8bf8f2372568766a7b8be1a8cf01e99177ca5596 tianhaoran/zssr_mysql:test</span><br></pre></td></tr></table></figure>
+
+<p>上传镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push &lt;镜像名&gt;:&lt;标签&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤3：生成容器"><a href="#步骤3：生成容器" class="headerlink" title="步骤3：生成容器"></a>步骤3：生成容器</h3><h3 id="步骤4：获取容器的ip地址，并修改配置文件config-py"><a href="#步骤4：获取容器的ip地址，并修改配置文件config-py" class="headerlink" title="步骤4：获取容器的ip地址，并修改配置文件config.py"></a>步骤4：获取容器的ip地址，并修改配置文件<code>config.py</code></h3><h3 id="步骤5：生成后端代码的镜像。并生成容器"><a href="#步骤5：生成后端代码的镜像。并生成容器" class="headerlink" title="步骤5：生成后端代码的镜像。并生成容器"></a>步骤5：生成后端代码的镜像。并生成容器</h3><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>拉取镜像并生成容器</li>
+<li>数据库文件的备份和恢复</li>
+<li>更改项目后端的配置，并编写dockerfile</li>
+<li>运行容器</li>
+</ul>
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><h3 id="1-拉取方法"><a href="#1-拉取方法" class="headerlink" title="1.拉取方法"></a>1.拉取方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull &lt;镜像名称:镜像版本&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-本项目拉取"><a href="#2-本项目拉取" class="headerlink" title="2.本项目拉取"></a>2.本项目拉取</h3><ul>
+<li>Mysql:8.0</li>
+<li></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:8.0</span><br><span class="line">docker pull mongo:</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-容器生成"><a href="#3-容器生成" class="headerlink" title="3.容器生成"></a>3.容器生成</h3><h4 id="（1）mysql容器生成"><a href="#（1）mysql容器生成" class="headerlink" title="（1）mysql容器生成"></a>（1）mysql容器生成</h4><ul>
+<li>-p 表示端口号映射，<code>9306:3306</code>表示外部端口号和内部端口号，外网访问使用外部端口号，容器之间的访问使用内部端口号</li>
+<li>–name 表示设置容器的名称，这里设置为<code>mysql_cont</code></li>
+<li>MYSQL_ROOT_PASSWORD用于设定该mysql中root账户的初始密码</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 9306:3306 --name mysql_cont -e MYSQL_ROOT_PASSWORD=thr970726 mysql:8.0</span><br></pre></td></tr></table></figure>
+
+<p>使用此命令后会返回容器的id<code>e437f2ee9b16b35a216f631daab27ad0609bde3737df7adbb36840d70a3f3deb</code></p>
+<p>如果想进入mysql容器，进行命令行操作，则使用下面的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="数据库的备份和恢复"><a href="#数据库的备份和恢复" class="headerlink" title="数据库的备份和恢复"></a>数据库的备份和恢复</h2><p>为了将本地（服务器数据库）内的数据迁移到docker容器中，我们需要首先备份数据（dump），之后在docker容器中构建同名的数据库，并将备份生成的数据文件导入docker容器的数据库中</p>
+<h3 id="1-mysql的备份和恢复"><a href="#1-mysql的备份和恢复" class="headerlink" title="1.mysql的备份和恢复"></a>1.mysql的备份和恢复</h3><h4 id="方式1：本地dump-sql文件-上传到服务器-使用docker恢复数据库"><a href="#方式1：本地dump-sql文件-上传到服务器-使用docker恢复数据库" class="headerlink" title="方式1：本地dump .sql文件 -&gt;上传到服务器 -&gt; 使用docker恢复数据库"></a>方式1：本地dump <code>.sql</code>文件 -&gt;上传到服务器 -&gt; 使用docker恢复数据库</h4><p>2.mogodb的备份和恢复</p>
+<p>3.neo4j的备份和恢复</p>
+<h2 id="更改项目的后端配置，并编写docker文件"><a href="#更改项目的后端配置，并编写docker文件" class="headerlink" title="更改项目的后端配置，并编写docker文件"></a>更改项目的后端配置，并编写docker文件</h2><h3 id="1-项目后端配置"><a href="#1-项目后端配置" class="headerlink" title="1.项目后端配置"></a>1.项目后端配置</h3><p>需要更改<code>config.py</code>文件</p>
+<p>首先，需要启动mysql，mongo，neo4j三个容器，并分别查询他们的ip地址</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> 容器ID</span><br></pre></td></tr></table></figure>
+
+<p>使用上面的命令分别获得三个容器的ip地址，并写入<code>config.py</code>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mysql  </span></span><br><span class="line">MYSQL_INFO = &#123;</span><br><span class="line">      <span class="string">&#x27;host&#x27;</span>: <span class="string">&#x27;172.17.0.6&#x27;</span>,   <span class="comment"># mysql容器的IP地址</span></span><br><span class="line">      <span class="string">&#x27;port&#x27;</span>: <span class="number">3306</span>,   <span class="comment"># mysql容器的内部端口号</span></span><br><span class="line">      <span class="string">&#x27;user&#x27;</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;thr970726&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;db&#x27;</span>:<span class="string">&#x27;zssr_dev&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment"># mongo</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里要注意，容器之间的互相访问，端口号应当配置为容器的内部端口号</p>
+<h2 id="附录1-常见命令"><a href="#附录1-常见命令" class="headerlink" title="附录1 常见命令"></a>附录1 常见命令</h2><h3 id="1-mysql常见命令"><a href="#1-mysql常见命令" class="headerlink" title="1.mysql常见命令"></a>1.mysql常见命令</h3><p>mac配置mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(1)打开终端，输入：sudo vim ~/.bash_profile(执行root权限，当前用户的根目录下的.bash_profile)</span><br><span class="line"></span><br><span class="line">(2)然后在里面输入：export PATH=$PATH:/usr/local/mysql/bin</span><br><span class="line"></span><br><span class="line">(3)按ESC，然后输入：:wq</span><br><span class="line"></span><br><span class="line">(4)source ~/.bash_profile（重新加载）</span><br><span class="line"></span><br><span class="line">(5)控制台输入mysql --version，查看版本号就成功了</span><br><span class="line"></span><br><span class="line">(6)查看mysql本地位置：ps -ef|grep mysql</span><br><span class="line"></span><br><span class="line">(7)创建touch .zshrc</span><br><span class="line"></span><br><span class="line">(8)打开open .zshrc</span><br><span class="line"></span><br><span class="line">(9)输入source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+
+
+<p>mysql访问远程数据库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通用格式</span></span><br><span class="line">mysql -h &lt;远程主机IP地址&gt; -P &lt;端口号&gt; -u&lt;用户名&gt; -p</span><br><span class="line"><span class="comment"># 本项目</span></span><br><span class="line">mysql -h 222.20.95.239 -P 3300 -uroot -psunrui00</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录2-困难-解决方案"><a href="#附录2-困难-解决方案" class="headerlink" title="附录2 困难&amp;解决方案"></a>附录2 困难&amp;解决方案</h2><h3 id="1-地址配置"><a href="#1-地址配置" class="headerlink" title="1.地址配置"></a>1.地址配置</h3><h3 id="2-在服务器上无法访问mysql"><a href="#2-在服务器上无法访问mysql" class="headerlink" title="2.在服务器上无法访问mysql"></a>2.在服务器上无法访问mysql</h3><p>问题描述：</p>
+<p>首先，使用mysql登录命令<code>mysql -uroot -p密码</code>无法访问</p>
+<p>![image-20230527155542419](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230527155542419.png)</p>
+<p>同时，我们在本地是可以访问的：</p>
+<p>![image-20230527155732744](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230527155732744.png)</p>
+<p>解决步骤：</p>
+<p>我们考虑，是不是路径配置问题</p>
+<p>首先查看mysql版本号<code>mysql --version</code>，返回的版本是5.7，显然与我们的8.0不一致</p>
+<p>所以，我们查看一下mysql的路径，在服务器端分别输入<code>where is mysql</code> 和 <code>which mysql</code></p>
+<p>![image-20230527155927226](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230527155927226.png)</p>
+<p>可以看到，我们在使用的是第一个mysql</p>
+<p>之后，我们在本地通过已经连接的mysql，查询版本号和mysql的位置，分别输入<code>SHOW VERSION()</code>和<code>SELECT @@datadir;</code></p>
+<p>![image-20230527163848982](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230527163848982.png)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/26/%E7%AC%94%E8%AE%B0/docker/docker%E9%83%A8%E7%BD%B2/" data-id="clkhmtkfb0008hbfy81vbceav" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/27/%E7%AC%94%E8%AE%B0/python/Flask/flask01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/%7B'score_item_id'%203,%20%20'apply_department_id'%201725,%20%20'apply_person_num'%20'17000715',%20%20'score_person_num'%20'17000715',%20%20'/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

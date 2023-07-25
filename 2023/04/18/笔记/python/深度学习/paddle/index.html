@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、DOCs1.paddle.nn.Embedding嵌入层(Embedding Layer)用于构建Embedding的一个可调用对象 123456789class paddle.nn.Embedding(num_embeddings, embedding_dim, padding_idx&#x3D;None, sparse&#x3D;False, weight_attr&#x3D;None, name&#x3D;None)# num">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/04/18/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/paddle/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、DOCs1.paddle.nn.Embedding嵌入层(Embedding Layer)用于构建Embedding的一个可调用对象 123456789class paddle.nn.Embedding(num_embeddings, embedding_dim, padding_idx&#x3D;None, sparse&#x3D;False, weight_attr&#x3D;None, name&#x3D;None)# num">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-18T08:47:50.000Z">
+<meta property="article:modified_time" content="2023-04-18T08:47:50.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记/python/深度学习/paddle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/18/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/paddle/" class="article-date">
+  <time class="dt-published" datetime="2023-04-18T08:47:50.000Z" itemprop="datePublished">2023-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、DOCs"><a href="#一、DOCs" class="headerlink" title="一、DOCs"></a>一、DOCs</h2><h3 id="1-paddle-nn-Embedding"><a href="#1-paddle-nn-Embedding" class="headerlink" title="1.paddle.nn.Embedding"></a>1.paddle.nn.Embedding</h3><p>嵌入层<code>(Embedding Layer)</code><br>用于构建Embedding的一个可调用对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">paddle</span>.nn.Embedding(num_embeddings, embedding_dim, padding_idx=<span class="literal">None</span>, sparse=<span class="literal">False</span>, weight_attr=<span class="literal">None</span>, name=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># num_embeddings(int)  嵌入字典的大小</span></span><br><span class="line"><span class="comment"># embedding_dim(int)  每个嵌入向量的维度</span></span><br><span class="line"><span class="comment"># padding_idx(int|None) 可选，padding_idx的区间为[-weight.shape[0], weight.shape[0]]</span></span><br><span class="line"><span class="comment">#												如果配置了padding_idx, 在训练中如果碰到此id，其参数及对应的梯度将会用0来填充</span></span><br><span class="line"><span class="comment"># sparse(bool) 可选，是否使用稀疏更新 在词嵌入权重交啊的情况下，使用稀疏更新训练速度更快，占用内存/显存更小</span></span><br><span class="line"><span class="comment"># weight_attr(ParamAttr) 可选，制定嵌入向量的配置，包括初始化方法，ParamAttr也是Paddle的类</span></span><br><span class="line"><span class="comment"># name 一般不用配置，name会作为网络层输出、权重的前缀标识</span></span><br></pre></td></tr></table></figure>
+
+<p>举例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当前的输入</span></span><br><span class="line">padding_idx = -<span class="number">1</span></span><br><span class="line">x.data=[</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">4</span>,<span class="number">127</span>]</span><br><span class="line">]</span><br><span class="line"><span class="comment"># 则输入的shape:</span></span><br><span class="line">x.shape = [<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line"><span class="comment"># weight</span></span><br><span class="line">weight.shape = [<span class="number">128</span>, <span class="number">16</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 则我们输出的Tensor:</span></span><br><span class="line">out.shape = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">16</span>]</span><br><span class="line">out.data = [</span><br><span class="line">            [[<span class="number">0.129435295</span>, <span class="number">0.244512452</span>, ..., <span class="number">0.436322452</span>],[<span class="number">0.345421456</span>, <span class="number">0.524563927</span>, ..., <span class="number">0.144534654</span>]],</span><br><span class="line">            [[<span class="number">0.345249859</span>, <span class="number">0.124939536</span>, ..., <span class="number">0.194353745</span>],[<span class="number">0.945345345</span>, <span class="number">0.435394634</span>, ..., <span class="number">0.435345365</span>]],</span><br><span class="line">            [[<span class="number">0.945345345</span>, <span class="number">0.435394634</span>, ..., <span class="number">0.435345365</span>],[<span class="number">0.0</span>,         <span class="number">0.0</span>,         ..., <span class="number">0.0</span>        ]]</span><br><span class="line">            ] </span><br><span class="line"><span class="comment"># 其中，最后一个全0张量是因为padding = -1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="二、常用函数"><a href="#二、常用函数" class="headerlink" title="二、常用函数"></a>二、常用函数</h2><h3 id="1-save-load"><a href="#1-save-load" class="headerlink" title="1.save_load"></a>1.save_load</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paddle</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(</span><br><span class="line">	<span class="built_in">format</span> = <span class="string">&#x27;%(asctime)s - %(leveltime)s -%(message)s&#x27;</span>, level=logging.INFO	</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">save_model</span>()</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/18/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/paddle/" data-id="clkhmtkfx0012hbfy6qer0rw8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/24/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/matplotlib/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/17/%E7%AC%94%E8%AE%B0/python/python%E5%9F%BA%E7%A1%80/effective_python/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

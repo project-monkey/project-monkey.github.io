@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="如果你的 Flask 项目需要使用 MySQL、MongoDB 和 Neo4j 数据库，并且你希望将整个项目部署在 Docker 上，你可以按照以下步骤操作：  编写 Dockerfile：在项目根目录下创建一个名为 Dockerfile 的文件，并编写用于构建镜像的 Dockerfile 内容。你可以使用多阶段构建来分别处理 Python 代码和数据库服务。 123456789101112131">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="如果你的 Flask 项目需要使用 MySQL、MongoDB 和 Neo4j 数据库，并且你希望将整个项目部署在 Docker 上，你可以按照以下步骤操作：  编写 Dockerfile：在项目根目录下创建一个名为 Dockerfile 的文件，并编写用于构建镜像的 Dockerfile 内容。你可以使用多阶段构建来分别处理 Python 代码和数据库服务。 123456789101112131">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-23T08:42:43.410Z">
+<meta property="article:modified_time" content="2023-05-24T07:40:24.938Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记/docker/docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" class="article-date">
+  <time class="dt-published" datetime="2023-05-23T08:42:43.410Z" itemprop="datePublished">2023-05-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>如果你的 Flask 项目需要使用 MySQL、MongoDB 和 Neo4j 数据库，并且你希望将整个项目部署在 Docker 上，你可以按照以下步骤操作：</p>
+<ol>
+<li><p>编写 Dockerfile：在项目根目录下创建一个名为 Dockerfile 的文件，并编写用于构建镜像的 Dockerfile 内容。你可以使用多阶段构建来分别处理 Python 代码和数据库服务。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">DockerfileCopy code</span><br><span class="line"># 阶段一：构建 Python 代码</span><br><span class="line">FROM python:3.9 AS base</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># 安装项目依赖</span><br><span class="line">COPY requirements.txt .</span><br><span class="line">RUN pip install --no-cache-dir -r requirements.txt</span><br><span class="line"></span><br><span class="line"># 复制项目代码</span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># 阶段二：构建 MySQL 服务</span><br><span class="line">FROM mysql:latest AS mysql</span><br><span class="line"></span><br><span class="line"># 配置 MySQL 环境变量和初始化脚本</span><br><span class="line">ENV MYSQL_DATABASE=db_name \</span><br><span class="line">    MYSQL_USER=db_user \</span><br><span class="line">    MYSQL_PASSWORD=db_password \</span><br><span class="line">    MYSQL_ROOT_PASSWORD=root_password</span><br><span class="line"></span><br><span class="line">COPY init_mysql.sql /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段三：构建 MongoDB 服务</span><br><span class="line">FROM mongo:latest AS mongo</span><br><span class="line"></span><br><span class="line"># 配置 MongoDB 环境变量和初始化脚本</span><br><span class="line">ENV MONGO_INITDB_ROOT_USERNAME=mongo_user \</span><br><span class="line">    MONGO_INITDB_ROOT_PASSWORD=mongo_password</span><br><span class="line"></span><br><span class="line">COPY init_mongo.js /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段四：构建 Neo4j 服务</span><br><span class="line">FROM neo4j:latest AS neo4j</span><br><span class="line"></span><br><span class="line"># 配置 Neo4j 环境变量和初始化脚本</span><br><span class="line">ENV NEO4J_AUTH=neo4j/neo4j_password</span><br><span class="line"></span><br><span class="line">COPY init_neo4j.cypher /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段五：组合所有服务</span><br><span class="line">FROM base</span><br><span class="line"></span><br><span class="line"># 复制 MySQL、MongoDB 和 Neo4j 的服务配置</span><br><span class="line">COPY --from=mysql / /</span><br><span class="line">COPY --from=mongo / /</span><br><span class="line">COPY --from=neo4j / /</span><br><span class="line"></span><br><span class="line"># 设置启动命令</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>请注意，上述 Dockerfile 是一个简化的示例，你需要根据你的项目结构和需求进行相应的修改。</p>
+</li>
+<li><p>编写数据库初始化脚本：根据每个数据库的需求，编写相应的初始化脚本。</p>
+<ul>
+<li>对于 MySQL，可以创建一个名为 <code>init_mysql.sql</code> 的脚本文件，包含数据库和表的初始化语句。</li>
+<li>对于 MongoDB，可以创建一个名为 <code>init_mongo.js</code> 的脚本文件，包含初始化集合和文档的语句。</li>
+<li>对于 Neo4j，可以创建一个名为 <code>init_neo4j.cypher</code> 的脚本文件，包含初始化节点和关系的 Cypher 查询。</li>
+</ul>
+<p>你可以根据数据库的需求和你的项目来编写相应的初始化脚本。</p>
+</li>
+<li><p>构建和运行 Docker 镜像：在项目根目录下，使用以下命令来构建 Docker 镜像并运行容器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shellCopy code</span><br><span class="line"># 构建镜像</span><br><span class="line">docker build -t your_image_name .</span><br><span class="line"></span><br><span class="line"># 运行容器</span><br><span class="line">docker run -d -p 5000:5000 --name your_container_name your_image_name</span><br></pre></td></tr></table></figure>
+
+<p>这将会构建一个名为 <code>your_image_name</code> 的 Docker 镜像，并将容器的 5000 端口映射到主机的 5000 端口。你可以根据需要进行修改。</p>
+<p>当容器启动后，你的 Flask 项目将会运行，并可以访问 MySQL、MongoDB 和 Neo4j 数据库服务。</p>
+</li>
+</ol>
+<p>请确保在 Docker 环境中配置好相应的数据库连接参数，并在 Dockerfile 中正确地配置数据库服务的环境变量和初始化脚本。</p>
+<p>希望这些步骤能帮助你将 Flask 项目与 MySQL、MongoDB 和 Neo4j 数据库一起部署到 Docker 上。</p>
+<h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><p>docker run -d -p 9011:3306 –name mysql_test_cont mysql:thr_test</p>
+<h2 id="启动容器命令行"><a href="#启动容器命令行" class="headerlink" title="启动容器命令行"></a>启动容器命令行</h2><p>docker exec -it 37808822948c4a16189d9a429302cd1b408fe10f05a234fcac9f37de5266f88a &#x2F;bin&#x2F;sh</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" data-id="clkhmtkfa0006hbfycefu8o85" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/16/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/T5_model/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

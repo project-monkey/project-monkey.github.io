@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Transformer Feed-Forward Layers Build Predictions by Promoting Concepts in the Vocabulary Space翻译：摘要基于Transformer的语言模型（LMs）是现代自然语言处理的核心，但其内部的预测构建过程是不透明且很大程度上不被理解的。在这项工作中，我们通过逆向工程转换模型的构建块之一，即前馈神经网络（FFN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/06/15/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/Untitled/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Transformer Feed-Forward Layers Build Predictions by Promoting Concepts in the Vocabulary Space翻译：摘要基于Transformer的语言模型（LMs）是现代自然语言处理的核心，但其内部的预测构建过程是不透明且很大程度上不被理解的。在这项工作中，我们通过逆向工程转换模型的构建块之一，即前馈神经网络（FFN">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-15T11:28:24.833Z">
+<meta property="article:modified_time" content="2023-06-15T11:50:05.676Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记/论文/Untitled" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/15/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/Untitled/" class="article-date">
+  <time class="dt-published" datetime="2023-06-15T11:28:24.833Z" itemprop="datePublished">2023-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Transformer-Feed-Forward-Layers-Build-Predictions-by-Promoting-Concepts-in-the-Vocabulary-Space"><a href="#Transformer-Feed-Forward-Layers-Build-Predictions-by-Promoting-Concepts-in-the-Vocabulary-Space" class="headerlink" title="Transformer Feed-Forward Layers Build Predictions by Promoting Concepts in the Vocabulary Space"></a>Transformer Feed-Forward Layers Build Predictions by Promoting Concepts in the Vocabulary Space</h2><h3 id="翻译："><a href="#翻译：" class="headerlink" title="翻译："></a>翻译：</h3><h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>基于Transformer的语言模型（LMs）是现代自然语言处理的核心，但其内部的预测构建过程是不透明且很大程度上不被理解的。在这项工作中，我们通过逆向工程转换模型的构建块之一，即前馈神经网络（FFN）层的操作，迈出了揭示这种潜在预测过程的重要一步。我们将令牌表示视为词汇表上的变化分布，并将每个FFN层的输出视为对该分布的加性更新。然后，我们在词汇空间中分析FFN的更新，显示每个更新可以分解为对应于单个FFN参数向量的子更新，每个子更新推动常常是可解释的概念。然后，我们利用这些发现来控制语言模型的预测，通过减少GPT2的毒性，减少了近50%，并通过简单的提前退出规则提高计算效率，平均节省了20%的计算量。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>理解Transformer的内部工作对于向终端用户解释性、调试预测、消除不良行为以及理解自然语言处理模型的优势和局限性非常有价值。在这项工作中，我们将焦点放在了作为Transformer-based语言模型核心组件的前馈神经网络（FFN）上，这一部分在研究中尚未受到充分的关注。我们将FFN的输出视为参数向量的线性组合，称为值（values），并研究这些向量如何更新令牌表示的机制。我们展示了值向量经常编码可解释的人类概念，并且这些概念在输出分布中得到提升。我们对基于Transformer的语言模型的分析提供了对其内部预测过程更详细的理解，并在个别向量的层面上提出了新的可解释性、控制性和效率性研究方向的建议。</p>
+<p>基于Transformer的语言模型（LMs）是如何构建预测的？我们通过研究前馈神经网络（FFN）层来探究这个问题，这是Transformer中的核心组件之一（Vaswani等人，2017）。最近的研究表明，这些层在LMs中起着重要的作用，作为编码事实和语言知识的记忆体（Geva等人，2021；Da等人，2021；Meng等人，2022）。在这项工作中，我们调查了FFN层的输出如何在内部被利用来构建预测。我们首先观察到输入中单个词元的表示，如图1所示。首先，每个FFN层对词元表示进行加性更新（图1中的A）。其次，跨层的词元表示可以在任意阶段转化为输出词汇表上的分布（Geva等人，2021）（图1中的B）。我们推断出更新中的加性成分会改变这个分布（§2），也就是说，FFN层计算的更新可以解释为输出词汇表的内容。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/15/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/Untitled/" data-id="clkhmtkfm000ohbfy6cpd4f3v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/06/21/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/6.21%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%95%B0%E6%8D%AE%E5%AF%B9%E6%8E%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/09/%E7%AC%94%E8%AE%B0/%E6%9C%AA%E5%91%BD%E5%90%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

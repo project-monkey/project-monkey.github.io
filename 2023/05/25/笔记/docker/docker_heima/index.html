@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="查看容器ip1docker inspect -f &amp;#x27;&amp;#123;&amp;#123;range .NetworkSettings.Networks&amp;#125;&amp;#125;&amp;#123;&amp;#123;.IPAddress&amp;#125;&amp;#125;&amp;#123;&amp;#123;end&amp;#125;&amp;#125;&amp;#x27; container_id    基于python镜像的后端Dockerfile1234567">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="查看容器ip1docker inspect -f &amp;#x27;&amp;#123;&amp;#123;range .NetworkSettings.Networks&amp;#125;&amp;#125;&amp;#123;&amp;#123;.IPAddress&amp;#125;&amp;#125;&amp;#123;&amp;#123;end&amp;#125;&amp;#125;&amp;#x27; container_id    基于python镜像的后端Dockerfile1234567">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-25T08:31:59.344Z">
+<meta property="article:modified_time" content="2023-05-28T05:50:29.887Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记/docker/docker_heima" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" class="article-date">
+  <time class="dt-published" datetime="2023-05-25T08:31:59.344Z" itemprop="datePublished">2023-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="查看容器ip"><a href="#查看容器ip" class="headerlink" title="查看容器ip"></a>查看容器ip</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> container_id</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="基于python镜像的后端Dockerfile"><a href="#基于python镜像的后端Dockerfile" class="headerlink" title="基于python镜像的后端Dockerfile"></a>基于python镜像的后端Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于python3.9镜像</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span></span><br><span class="line"><span class="comment"># 设置工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装项目依赖</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制项目代码</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对外暴露的端口号</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8123</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在启动时自动运行python run.py</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;run.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>docker容器转换成镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器<span class="built_in">id</span> 镜像名称:版本号</span><br></pre></td></tr></table></figure>
+
+<h2 id="dockerfile概述及关键字"><a href="#dockerfile概述及关键字" class="headerlink" title="dockerfile概述及关键字"></a>dockerfile概述及关键字</h2><h3 id="一-dockerfile概念"><a href="#一-dockerfile概念" class="headerlink" title="一 dockerfile概念"></a>一 dockerfile概念</h3><p>dockerfile是一个文本文件</p>
+<p>包含了一条条的指令</p>
+<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><p>Docker Compose 是一个编排多容器分布式部署的工具，提供命令集管理容器化应用的完整开发周期，包括服务构建，启动和停止。</p>
+<p>使用步骤：</p>
+<p>1.利用Dockerfile定义运行环境镜像</p>
+<p>2.使用docker-compose.yml定义组成应用的各服务</p>
+<p>3.运行<code>docker-compose up</code> 启动应用</p>
+<h2 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker inspect -f &#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27; 容器ID</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;thr&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;thr970726&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;thr&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># pwd</span><br><span class="line">/opt</span><br><span class="line"># mkdir -p docker_v/mysql/conf</span><br><span class="line"># cd docker_v/mysql/conf</span><br><span class="line"># touch my.cnf</span><br><span class="line"># docker run -p 3306:3306 --name mysql -v /opt/docker_v/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 -d imageID</span><br><span class="line">4ec4f56455ea2d6d7251a05b7f308e314051fdad2c26bf3d0f27a9b0c0a71414</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>mysql连接远程数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 远程服务器IP地址 -P 3306 -u 用户名 -p</span><br><span class="line"></span><br><span class="line">mysql -h 172.17.0.6 -P 9306 -u thr -p thr970726</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="导出数据库文件"><a href="#导出数据库文件" class="headerlink" title="导出数据库文件"></a>导出数据库文件</h3><p>1.导出mysql文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u your_username -p your_database &gt; path/dump_file.sql</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Docker 将宿主机的内容复制到容器中</p>
+<p>1.复制mysql内容</p>
+<p>将本地内容复制到docker中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp /path/to/01.sql mysql-container:/docker-entrypoint-initdb.d/01.sql</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /docker-entrypoint-initdb.d/init_mysql.sql</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-mongo"><a href="#2-mongo" class="headerlink" title="2.mongo"></a>2.mongo</h3><h4 id="下载mongo镜像"><a href="#下载mongo镜像" class="headerlink" title="下载mongo镜像"></a>下载mongo镜像</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mongo:3.6.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行mongo容器"><a href="#运行mongo容器" class="headerlink" title="运行mongo容器"></a>运行mongo容器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 27019:27017 --name mongo_container mongo:3.6.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="导出mongodb的数据"><a href="#导出mongodb的数据" class="headerlink" title="导出mongodb的数据"></a>导出mongodb的数据</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h dbhost -d dbname -o dbdirectory</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>-h：</p>
+<p>MongoDB 所在服务器地址，例如：127.0.0.1，当然也可以指定端口号：127.0.0.1:27017</p>
+</li>
+<li><p>-d：</p>
+<p>需要备份的数据库实例，例如：test</p>
+</li>
+<li><p>-o：</p>
+<p>备份的数据存放位置，例如：c:\data\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个test目录，这个目录里面存放该数据库实例的备份数据。</p>
+</li>
+</ul>
+<p>对于16号机：</p>
+<p>我们可以将文件导出到当前路径下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h 222.20.95.239 --port 27000 -d zssr_dev -o .</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="恢复mongodb的数据"><a href="#恢复mongodb的数据" class="headerlink" title="恢复mongodb的数据"></a>恢复mongodb的数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h &lt;hostname&gt;&lt;:port&gt; -d dbname &lt;path&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对于16号机：</p>
+<p>由于我么之前设置的备份路径就是根目录下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">ls</span></span><br><span class="line">bin   data  docker-entrypoint-initdb.d	home	       js-yaml.js  lib32  libx32  mnt  proc  run   srv	tmp  var</span><br><span class="line">boot  dev   etc				init_mongo.js  lib	   lib64  media   opt  root  sbin  sys	usr  zssr_dev</span><br></pre></td></tr></table></figure>
+
+<p>我们要是用的文件路径就是<code>./zssr_dev</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h localhost:27017 -d zssr_dev ./zssr_dev</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>复制</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式：</span></span><br><span class="line">docker <span class="built_in">cp</span> /path/to/data.js mongodb-container:/data.js</span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">docker <span class="built_in">cp</span> init_mongo.js 155b95a1a0aadee53f8695e2800f53094ca39b52c40788ed2e55c06e24ccc51c:/init_mongo.js</span><br></pre></td></tr></table></figure>
+
+
+
+<p>构建数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use zssr_dev;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(&quot;path/to/build.js&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用mongoimport命令使用.json文件构建mongo数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoimport --host your_host --port your_port --username your_username --password your_password --db your_database --collection your_collection --file your_file.json</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="服务器登录docker"><a href="#服务器登录docker" class="headerlink" title="服务器登录docker"></a>服务器登录docker</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker login &lt;仓库地址&gt;</span><br><span class="line">docker login 2649706356@qq.com</span><br><span class="line"><span class="comment"># 之后需要输入账户名和密码</span></span><br><span class="line"><span class="comment"># 我的账户名和密码分别是：</span></span><br><span class="line">tianhaoran</span><br><span class="line">thr970726</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" data-id="clkhmtkfa0007hbfy3vfnf63q" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/%7B'score_item_id'%203,%20%20'apply_department_id'%201725,%20%20'apply_person_num'%20'17000715',%20%20'score_person_num'%20'17000715',%20%20'/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
