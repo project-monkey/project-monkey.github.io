@@ -73,6 +73,41 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-笔记/python/深度学习/pytorch" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/23/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/" class="article-date">
+  <time class="dt-published" datetime="2023-06-23T12:59:08.331Z" itemprop="datePublished">2023-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一-torch-nn-Module"><a href="#一-torch-nn-Module" class="headerlink" title="一 torch.nn.Module"></a>一 torch.nn.Module</h2><ul>
+<li>Base class for all neural network modules </li>
+<li>All your models should subclass（继承）this class</li>
+</ul>
+<p>Example_base:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.funtional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Model</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">super</span>().__init__()</span><br><span class="line">    self.conv1 = nn.Conv2d(<span class="number">1</span>,<span class="number">20</span>,<span class="number">5</span>)</span><br><span class="line">    ...</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">    x = F.relu(self.conv1(x))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/23/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/" data-id="clkhn5fnz00143tfy32kt6g2j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-笔记/学习日记/6.21学习主数据对接" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/06/21/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/6.21%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%95%B0%E6%8D%AE%E5%AF%B9%E6%8E%A5/" class="article-date">
@@ -95,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/21/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/6.21%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%95%B0%E6%8D%AE%E5%AF%B9%E6%8E%A5/" data-id="clkhn3zkb000nm4fy8wpa0kjl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/06/21/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/6.21%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%95%B0%E6%8D%AE%E5%AF%B9%E6%8E%A5/" data-id="clkhn5fnj000j3tfyhofr0b8z" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -126,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/15/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/Untitled/" data-id="clkhn3zkb000om4fy1zxgcrba" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/06/15/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/Untitled/" data-id="clkhn5fnm000p3tfycvttad2z" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -154,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/06/09/%E7%AC%94%E8%AE%B0/%E6%9C%AA%E5%91%BD%E5%90%8D/" data-id="clkhn3zk00005m4fy3hr74evm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/06/09/%E7%AC%94%E8%AE%B0/%E6%9C%AA%E5%91%BD%E5%90%8D/" data-id="clkhn5fn900053tfyf8rq1149" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -203,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/29/%E7%AC%94%E8%AE%B0/mysql/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/" data-id="clkhn3zk6000em4fy070b0t7h" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/29/%E7%AC%94%E8%AE%B0/mysql/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/" data-id="clkhn5fnh000f3tfy4dmb9xhr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -264,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/28/%E7%AC%94%E8%AE%B0/docker/%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2/" data-id="clkhn3zk5000cm4fy8k444r2w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/28/%E7%AC%94%E8%AE%B0/docker/%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2/" data-id="clkhn5fnc00093tfy0qlh9p8t" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -305,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/27/%E7%AC%94%E8%AE%B0/python/Flask/flask01/" data-id="clkhn3zkc000rm4fyhmz0akuh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/27/%E7%AC%94%E8%AE%B0/python/Flask/flask01/" data-id="clkhn5fnn000r3tfy1i8tgkgw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -415,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/26/%E7%AC%94%E8%AE%B0/docker/docker%E9%83%A8%E7%BD%B2/" data-id="clkhn3zk4000bm4fy6nw015z7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/26/%E7%AC%94%E8%AE%B0/docker/docker%E9%83%A8%E7%BD%B2/" data-id="clkhn5fnb00083tfyce158odh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -445,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/%7B'score_item_id'%203,%20%20'apply_department_id'%201725,%20%20'apply_person_num'%20'17000715',%20%20'score_person_num'%20'17000715',%20%20'/" data-id="clkhn3zjy0003m4fy7wyo9b65" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/%7B'score_item_id'%203,%20%20'apply_department_id'%201725,%20%20'apply_person_num'%20'17000715',%20%20'score_person_num'%20'17000715',%20%20'/" data-id="clkhn5fn600033tfy7cej11tc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -592,61 +627,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" data-id="clkhn3zk3000am4fy7ir667z3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-笔记/docker/docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" class="article-date">
-  <time class="dt-published" datetime="2023-05-23T08:42:43.410Z" itemprop="datePublished">2023-05-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>如果你的 Flask 项目需要使用 MySQL、MongoDB 和 Neo4j 数据库，并且你希望将整个项目部署在 Docker 上，你可以按照以下步骤操作：</p>
-<ol>
-<li><p>编写 Dockerfile：在项目根目录下创建一个名为 Dockerfile 的文件，并编写用于构建镜像的 Dockerfile 内容。你可以使用多阶段构建来分别处理 Python 代码和数据库服务。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">DockerfileCopy code</span><br><span class="line"># 阶段一：构建 Python 代码</span><br><span class="line">FROM python:3.9 AS base</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># 安装项目依赖</span><br><span class="line">COPY requirements.txt .</span><br><span class="line">RUN pip install --no-cache-dir -r requirements.txt</span><br><span class="line"></span><br><span class="line"># 复制项目代码</span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># 阶段二：构建 MySQL 服务</span><br><span class="line">FROM mysql:latest AS mysql</span><br><span class="line"></span><br><span class="line"># 配置 MySQL 环境变量和初始化脚本</span><br><span class="line">ENV MYSQL_DATABASE=db_name \</span><br><span class="line">    MYSQL_USER=db_user \</span><br><span class="line">    MYSQL_PASSWORD=db_password \</span><br><span class="line">    MYSQL_ROOT_PASSWORD=root_password</span><br><span class="line"></span><br><span class="line">COPY init_mysql.sql /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段三：构建 MongoDB 服务</span><br><span class="line">FROM mongo:latest AS mongo</span><br><span class="line"></span><br><span class="line"># 配置 MongoDB 环境变量和初始化脚本</span><br><span class="line">ENV MONGO_INITDB_ROOT_USERNAME=mongo_user \</span><br><span class="line">    MONGO_INITDB_ROOT_PASSWORD=mongo_password</span><br><span class="line"></span><br><span class="line">COPY init_mongo.js /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段四：构建 Neo4j 服务</span><br><span class="line">FROM neo4j:latest AS neo4j</span><br><span class="line"></span><br><span class="line"># 配置 Neo4j 环境变量和初始化脚本</span><br><span class="line">ENV NEO4J_AUTH=neo4j/neo4j_password</span><br><span class="line"></span><br><span class="line">COPY init_neo4j.cypher /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段五：组合所有服务</span><br><span class="line">FROM base</span><br><span class="line"></span><br><span class="line"># 复制 MySQL、MongoDB 和 Neo4j 的服务配置</span><br><span class="line">COPY --from=mysql / /</span><br><span class="line">COPY --from=mongo / /</span><br><span class="line">COPY --from=neo4j / /</span><br><span class="line"></span><br><span class="line"># 设置启动命令</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>请注意，上述 Dockerfile 是一个简化的示例，你需要根据你的项目结构和需求进行相应的修改。</p>
-</li>
-<li><p>编写数据库初始化脚本：根据每个数据库的需求，编写相应的初始化脚本。</p>
-<ul>
-<li>对于 MySQL，可以创建一个名为 <code>init_mysql.sql</code> 的脚本文件，包含数据库和表的初始化语句。</li>
-<li>对于 MongoDB，可以创建一个名为 <code>init_mongo.js</code> 的脚本文件，包含初始化集合和文档的语句。</li>
-<li>对于 Neo4j，可以创建一个名为 <code>init_neo4j.cypher</code> 的脚本文件，包含初始化节点和关系的 Cypher 查询。</li>
-</ul>
-<p>你可以根据数据库的需求和你的项目来编写相应的初始化脚本。</p>
-</li>
-<li><p>构建和运行 Docker 镜像：在项目根目录下，使用以下命令来构建 Docker 镜像并运行容器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shellCopy code</span><br><span class="line"># 构建镜像</span><br><span class="line">docker build -t your_image_name .</span><br><span class="line"></span><br><span class="line"># 运行容器</span><br><span class="line">docker run -d -p 5000:5000 --name your_container_name your_image_name</span><br></pre></td></tr></table></figure>
-
-<p>这将会构建一个名为 <code>your_image_name</code> 的 Docker 镜像，并将容器的 5000 端口映射到主机的 5000 端口。你可以根据需要进行修改。</p>
-<p>当容器启动后，你的 Flask 项目将会运行，并可以访问 MySQL、MongoDB 和 Neo4j 数据库服务。</p>
-</li>
-</ol>
-<p>请确保在 Docker 环境中配置好相应的数据库连接参数，并在 Dockerfile 中正确地配置数据库服务的环境变量和初始化脚本。</p>
-<p>希望这些步骤能帮助你将 Flask 项目与 MySQL、MongoDB 和 Neo4j 数据库一起部署到 Docker 上。</p>
-<h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><p>docker run -d -p 9011:3306 –name mysql_test_cont mysql:thr_test</p>
-<h2 id="启动容器命令行"><a href="#启动容器命令行" class="headerlink" title="启动容器命令行"></a>启动容器命令行</h2><p>docker exec -it 37808822948c4a16189d9a429302cd1b408fe10f05a234fcac9f37de5266f88a &#x2F;bin&#x2F;sh</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" data-id="clkhn3zk20009m4fy1gwcgcwb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" data-id="clkhn5fna00073tfy3d35evuc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -694,6 +675,10 @@
       <ul>
         
           <li>
+            <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
+          </li>
+        
+          <li>
             <a href="/2023/07/24/test/">测试使用hexo</a>
           </li>
         
@@ -707,10 +692,6 @@
         
           <li>
             <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/">(no title)</a>
           </li>
         
       </ul>
