@@ -73,6 +73,153 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-笔记/docker/docker_heima" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" class="article-date">
+  <time class="dt-published" datetime="2023-05-25T08:31:59.344Z" itemprop="datePublished">2023-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="查看容器ip"><a href="#查看容器ip" class="headerlink" title="查看容器ip"></a>查看容器ip</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> container_id</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="基于python镜像的后端Dockerfile"><a href="#基于python镜像的后端Dockerfile" class="headerlink" title="基于python镜像的后端Dockerfile"></a>基于python镜像的后端Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于python3.9镜像</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span></span><br><span class="line"><span class="comment"># 设置工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装项目依赖</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制项目代码</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对外暴露的端口号</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8123</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在启动时自动运行python run.py</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;run.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>docker容器转换成镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器<span class="built_in">id</span> 镜像名称:版本号</span><br></pre></td></tr></table></figure>
+
+<h2 id="dockerfile概述及关键字"><a href="#dockerfile概述及关键字" class="headerlink" title="dockerfile概述及关键字"></a>dockerfile概述及关键字</h2><h3 id="一-dockerfile概念"><a href="#一-dockerfile概念" class="headerlink" title="一 dockerfile概念"></a>一 dockerfile概念</h3><p>dockerfile是一个文本文件</p>
+<p>包含了一条条的指令</p>
+<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><p>Docker Compose 是一个编排多容器分布式部署的工具，提供命令集管理容器化应用的完整开发周期，包括服务构建，启动和停止。</p>
+<p>使用步骤：</p>
+<p>1.利用Dockerfile定义运行环境镜像</p>
+<p>2.使用docker-compose.yml定义组成应用的各服务</p>
+<p>3.运行<code>docker-compose up</code> 启动应用</p>
+<h2 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker inspect -f &#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27; 容器ID</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;thr&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;thr970726&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;thr&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># pwd</span><br><span class="line">/opt</span><br><span class="line"># mkdir -p docker_v/mysql/conf</span><br><span class="line"># cd docker_v/mysql/conf</span><br><span class="line"># touch my.cnf</span><br><span class="line"># docker run -p 3306:3306 --name mysql -v /opt/docker_v/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 -d imageID</span><br><span class="line">4ec4f56455ea2d6d7251a05b7f308e314051fdad2c26bf3d0f27a9b0c0a71414</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>mysql连接远程数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 远程服务器IP地址 -P 3306 -u 用户名 -p</span><br><span class="line"></span><br><span class="line">mysql -h 172.17.0.6 -P 9306 -u thr -p thr970726</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="导出数据库文件"><a href="#导出数据库文件" class="headerlink" title="导出数据库文件"></a>导出数据库文件</h3><p>1.导出mysql文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u your_username -p your_database &gt; path/dump_file.sql</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Docker 将宿主机的内容复制到容器中</p>
+<p>1.复制mysql内容</p>
+<p>将本地内容复制到docker中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp /path/to/01.sql mysql-container:/docker-entrypoint-initdb.d/01.sql</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /docker-entrypoint-initdb.d/init_mysql.sql</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-mongo"><a href="#2-mongo" class="headerlink" title="2.mongo"></a>2.mongo</h3><h4 id="下载mongo镜像"><a href="#下载mongo镜像" class="headerlink" title="下载mongo镜像"></a>下载mongo镜像</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mongo:3.6.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行mongo容器"><a href="#运行mongo容器" class="headerlink" title="运行mongo容器"></a>运行mongo容器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 27019:27017 --name mongo_container mongo:3.6.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="导出mongodb的数据"><a href="#导出mongodb的数据" class="headerlink" title="导出mongodb的数据"></a>导出mongodb的数据</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h dbhost -d dbname -o dbdirectory</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>-h：</p>
+<p>MongoDB 所在服务器地址，例如：127.0.0.1，当然也可以指定端口号：127.0.0.1:27017</p>
+</li>
+<li><p>-d：</p>
+<p>需要备份的数据库实例，例如：test</p>
+</li>
+<li><p>-o：</p>
+<p>备份的数据存放位置，例如：c:\data\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个test目录，这个目录里面存放该数据库实例的备份数据。</p>
+</li>
+</ul>
+<p>对于16号机：</p>
+<p>我们可以将文件导出到当前路径下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h 222.20.95.239 --port 27000 -d zssr_dev -o .</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="恢复mongodb的数据"><a href="#恢复mongodb的数据" class="headerlink" title="恢复mongodb的数据"></a>恢复mongodb的数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h &lt;hostname&gt;&lt;:port&gt; -d dbname &lt;path&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对于16号机：</p>
+<p>由于我么之前设置的备份路径就是根目录下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">ls</span></span><br><span class="line">bin   data  docker-entrypoint-initdb.d	home	       js-yaml.js  lib32  libx32  mnt  proc  run   srv	tmp  var</span><br><span class="line">boot  dev   etc				init_mongo.js  lib	   lib64  media   opt  root  sbin  sys	usr  zssr_dev</span><br></pre></td></tr></table></figure>
+
+<p>我们要是用的文件路径就是<code>./zssr_dev</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h localhost:27017 -d zssr_dev ./zssr_dev</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>复制</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式：</span></span><br><span class="line">docker <span class="built_in">cp</span> /path/to/data.js mongodb-container:/data.js</span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">docker <span class="built_in">cp</span> init_mongo.js 155b95a1a0aadee53f8695e2800f53094ca39b52c40788ed2e55c06e24ccc51c:/init_mongo.js</span><br></pre></td></tr></table></figure>
+
+
+
+<p>构建数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use zssr_dev;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(&quot;path/to/build.js&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用mongoimport命令使用.json文件构建mongo数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoimport --host your_host --port your_port --username your_username --password your_password --db your_database --collection your_collection --file your_file.json</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="服务器登录docker"><a href="#服务器登录docker" class="headerlink" title="服务器登录docker"></a>服务器登录docker</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker login &lt;仓库地址&gt;</span><br><span class="line">docker login 2649706356@qq.com</span><br><span class="line"><span class="comment"># 之后需要输入账户名和密码</span></span><br><span class="line"><span class="comment"># 我的账户名和密码分别是：</span></span><br><span class="line">tianhaoran</span><br><span class="line">thr970726</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" data-id="clkjsv5pt000897fyeke32d92" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-笔记/docker/docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" class="article-date">
@@ -115,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" data-id="clkjr7z9l0006lrfyaq88etms" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" data-id="clkjsv5pr000797fyfi6w5ml5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -143,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/16/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/T5_model/" data-id="clkjr7zah001alrfy9j627rei" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/16/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/T5_model/" data-id="clkjsv5ql001b97fy6sm3e4l2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -171,7 +318,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/14/%E7%AC%94%E8%AE%B0/git/pycharm_git/" data-id="clkjr7z9p000alrfydezfgo2g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/14/%E7%AC%94%E8%AE%B0/git/pycharm_git/" data-id="clkjsv5py000e97fygy9wgemd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -209,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/11/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tqdm/" data-id="clkjr7zae0016lrfyenhiaeur" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/11/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tqdm/" data-id="clkjsv5qj001797fydyq4bc86" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -465,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/07/%E7%AC%94%E8%AE%B0/python/python%E5%9F%BA%E7%A1%80/python2/" data-id="clkjr7za4000vlrfy1xb2bv3h" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/07/%E7%AC%94%E8%AE%B0/python/python%E5%9F%BA%E7%A1%80/python2/" data-id="clkjsv5qb000y97fy6eg7ab4a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -493,7 +640,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/transformer/" data-id="clkjr7za0000plrfydayl4ffv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/transformer/" data-id="clkjsv5q6000r97fy473n3bm7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -536,7 +683,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/python/NLP/NLP%E5%9F%BA%E7%A1%80/" data-id="clkjr7za2000slrfy1l1jcxch" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/python/NLP/NLP%E5%9F%BA%E7%A1%80/" data-id="clkjsv5q8000u97fybu621rzx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -575,7 +722,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/python/%E5%B8%B8%E7%94%A8%E5%BA%93/openAI/" data-id="clkjr7za5000xlrfy6m3x3x1f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/python/%E5%B8%B8%E7%94%A8%E5%BA%93/openAI/" data-id="clkjsv5q7000t97fy53rmellp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -647,44 +794,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/01/%E7%AC%94%E8%AE%B0/python/jupyter/" data-id="clkjr7z9v000glrfy7up33dez" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-笔记/python/机器学习/sklearn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/01/%E7%AC%94%E8%AE%B0/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/sklearn/" class="article-date">
-  <time class="dt-published" datetime="2023-05-01T07:57:50.290Z" itemprop="datePublished">2023-05-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="model-selection"><a href="#model-selection" class="headerlink" title="model_selection"></a><code>model_selection</code></h2><h3 id="model-selection-StratifiedKFold"><a href="#model-selection-StratifiedKFold" class="headerlink" title="model_selection.StratifiedKFold"></a><code>model_selection.StratifiedKFold</code></h3><h4 id="1-Parameters"><a href="#1-Parameters" class="headerlink" title="1.Parameters"></a>1.Parameters</h4><ul>
-<li><code>n_split</code>int, default&#x3D;5</li>
-<li><code>shuffle</code>&#x3D; False</li>
-<li><code>random_state</code>&#x3D;None</li>
-</ul>
-<h4 id="2-主要的作用"><a href="#2-主要的作用" class="headerlink" title="2.主要的作用"></a>2.主要的作用</h4><p><code>StratifiedKFold</code>的作用是帮助解决数据集中类别不平衡的问题，即某些类别的样本数量比其他类别的样本数量更多或更少的情况。如果使用普通的交叉验证方法，可能会导致某些子集中某个类别的样本数量非常少，从而影响模型性能的评估。而使用<code>StratifiedKFold</code>可以确保每个子集中每个类别的样本数量都尽可能相似，从而更准确地评估模型的性能。</p>
-<h2 id="metrics"><a href="#metrics" class="headerlink" title="metrics"></a><code>metrics</code></h2><p><code>sklearn.metrics</code>是<code>Scikit-learn</code>机器学习库中的一个模块，提供了各种用于评估模型性能的指标和方法。它包含了许多常用的分类、回归、聚类等任务的评估指标，例如准确率、召回率、F1分数、ROC曲线、AUC（曲线下面积）等。</p>
-<p><code>sklearn.metrics</code>的主要作用是提供一种统一的方式来评估不同机器学习模型的性能，并帮助选择最佳的模型。通过使用<code>sklearn.metrics</code>中的指标，可以计算模型在给定数据集上的性能，并与其他模型进行比较。这些指标可以用于确定哪些模型效果最好，或者在调整模型的超参数时作为参考。</p>
-<p>此外，<code>sklearn.metrics</code>还提供了一些用于模型选择和调优的工具，例如交叉验证、网格搜索等。它还支持多种数据类型，例如numpy数组、pandas数据框、稀疏矩阵等，可以方便地与其他<code>Scikit-learn</code>模块一起使用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/01/%E7%AC%94%E8%AE%B0/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/sklearn/" data-id="clkjr7za6000ylrfyhtakbddx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/05/01/%E7%AC%94%E8%AE%B0/python/jupyter/" data-id="clkjsv5q0000h97fy6ev16143" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -732,6 +842,10 @@
       <ul>
         
           <li>
+            <a href="/2023/07/26/sbert/">SBERT</a>
+          </li>
+        
+          <li>
             <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
           </li>
         
@@ -745,10 +859,6 @@
         
           <li>
             <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/">(no title)</a>
           </li>
         
       </ul>

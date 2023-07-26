@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>SBERT | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="上手1.安装1pip install -U sentence-transformers 2.基本使用 导入模型1234567891011121314151617from sentence_transformers import SentenceTransformer# which sentence transformer model we like to loadmodel &#x3D; SentenceT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SBERT">
+<meta property="og:url" content="http://example.com/2023/07/26/sbert/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="上手1.安装1pip install -U sentence-transformers 2.基本使用 导入模型1234567891011121314151617from sentence_transformers import SentenceTransformer# which sentence transformer model we like to loadmodel &#x3D; SentenceT">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-26T13:41:12.353Z">
+<meta property="article:modified_time" content="2023-07-26T14:07:02.243Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-sbert" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/26/sbert/" class="article-date">
+  <time class="dt-published" datetime="2023-07-26T13:41:12.353Z" itemprop="datePublished">2023-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SBERT
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U sentence-transformers</span><br></pre></td></tr></table></figure>
+<h3 id="2-基本使用"><a href="#2-基本使用" class="headerlink" title="2.基本使用"></a>2.基本使用</h3><ul>
+<li>导入模型<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer</span><br><span class="line"><span class="comment"># which sentence transformer model we like to load</span></span><br><span class="line">model = SentenceTransformer(<span class="string">&#x27;all-MiniLM-L6-v2&#x27;</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment"># Our sentences we like to encode</span></span><br><span class="line">sentences = [<span class="string">&#x27;This framework generates embeddings for each input sentence&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sentences are passed as a list of string.&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;The quick brown fox jumps over the lazy dog.&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sentences are encoded by calling model.encode()</span></span><br><span class="line">sentence_embeddings = model.encode(sentences)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the embeddings</span></span><br><span class="line"><span class="keyword">for</span> sentence, embedding <span class="keyword">in</span> <span class="built_in">zip</span>(sentences, sentence_embeddings):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Sentence:&quot;</span>, sentence)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Embedding:&quot;</span>, embedding)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>查看相似度<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer, util</span><br><span class="line">model = SentenceTransformer(<span class="string">&#x27;all-MiniLM-L6-v2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Sentences are encoded by calling model.encode()</span></span><br><span class="line">emb1 = model.encode(<span class="string">&quot;This is a red cat with a hat.&quot;</span>)</span><br><span class="line">emb2 = model.encode(<span class="string">&quot;Have you seen my red cat?&quot;</span>)</span><br><span class="line"></span><br><span class="line">cos_sim = util.cos_sim(emb1, emb2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Cosine-Similarity:&quot;</span>, cos_sim)</span><br></pre></td></tr></table></figure></li>
+<li>比较相似度<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer, util</span><br><span class="line">model = SentenceTransformer(<span class="string">&#x27;all-MiniLM-L6-v2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># sentences = [&#x27;A man is eating food.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A man is eating a piece of bread.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;The girl is carrying a baby.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A man is riding a horse.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A woman is playing violin.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;Two men pushed carts through the woods.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A man is riding a white horse on an enclosed ground.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A monkey is playing drums.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;Someone in a gorilla costume is playing a set of drums.&#x27;</span></span><br><span class="line"><span class="comment">#           ]</span></span><br><span class="line">sentences = [<span class="string">&#x27;bert&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;attention&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;XLnet&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;ResNet&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;VGG&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;transformer&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;chatgpt&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;gpt3.5&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;LLM&#x27;</span></span><br><span class="line">          ]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Encode all sentences</span></span><br><span class="line">embeddings = model.encode(sentences)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Compute cosine similarity between all pairs</span></span><br><span class="line">cos_sim = util.cos_sim(embeddings, embeddings)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Add all pairs to a list with their cosine similarity score</span></span><br><span class="line">all_sentence_combinations = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(cos_sim)-<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(cos_sim)):</span><br><span class="line">        all_sentence_combinations.append([cos_sim[i][j], i, j])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Sort list by the highest cosine similarity score</span></span><br><span class="line">all_sentence_combinations = <span class="built_in">sorted</span>(all_sentence_combinations, key=<span class="keyword">lambda</span> x: x[<span class="number">0</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Top-5 most similar pairs:&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> score, i, j <span class="keyword">in</span> all_sentence_combinations[<span class="number">0</span>:<span class="number">5</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125; \t &#123;&#125; \t &#123;:.4f&#125;&quot;</span>.<span class="built_in">format</span>(sentences[i], sentences[j], cos_sim[i][j]))</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/07/26/sbert/" data-id="clkjsv5pm000297fyarte23fp" data-title="SBERT" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">pycharm中的git操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/26/sbert/">SBERT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
