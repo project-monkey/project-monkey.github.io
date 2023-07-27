@@ -101,11 +101,11 @@
 <li>查看相似度<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer, util</span><br><span class="line">model = SentenceTransformer(<span class="string">&#x27;all-MiniLM-L6-v2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Sentences are encoded by calling model.encode()</span></span><br><span class="line">emb1 = model.encode(<span class="string">&quot;This is a red cat with a hat.&quot;</span>)</span><br><span class="line">emb2 = model.encode(<span class="string">&quot;Have you seen my red cat?&quot;</span>)</span><br><span class="line"></span><br><span class="line">cos_sim = util.cos_sim(emb1, emb2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Cosine-Similarity:&quot;</span>, cos_sim)</span><br></pre></td></tr></table></figure></li>
 <li>比较相似度<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer, util</span><br><span class="line">model = SentenceTransformer(<span class="string">&#x27;all-MiniLM-L6-v2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># sentences = [&#x27;A man is eating food.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A man is eating a piece of bread.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;The girl is carrying a baby.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A man is riding a horse.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A woman is playing violin.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;Two men pushed carts through the woods.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A man is riding a white horse on an enclosed ground.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;A monkey is playing drums.&#x27;,</span></span><br><span class="line"><span class="comment">#           &#x27;Someone in a gorilla costume is playing a set of drums.&#x27;</span></span><br><span class="line"><span class="comment">#           ]</span></span><br><span class="line">sentences = [<span class="string">&#x27;bert&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;attention&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;XLnet&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;ResNet&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;VGG&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;transformer&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;chatgpt&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;gpt3.5&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;LLM&#x27;</span></span><br><span class="line">          ]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Encode all sentences</span></span><br><span class="line">embeddings = model.encode(sentences)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Compute cosine similarity between all pairs</span></span><br><span class="line">cos_sim = util.cos_sim(embeddings, embeddings)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Add all pairs to a list with their cosine similarity score</span></span><br><span class="line">all_sentence_combinations = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(cos_sim)-<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(cos_sim)):</span><br><span class="line">        all_sentence_combinations.append([cos_sim[i][j], i, j])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Sort list by the highest cosine similarity score</span></span><br><span class="line">all_sentence_combinations = <span class="built_in">sorted</span>(all_sentence_combinations, key=<span class="keyword">lambda</span> x: x[<span class="number">0</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Top-5 most similar pairs:&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> score, i, j <span class="keyword">in</span> all_sentence_combinations[<span class="number">0</span>:<span class="number">5</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125; \t &#123;&#125; \t &#123;:.4f&#125;&quot;</span>.<span class="built_in">format</span>(sentences[i], sentences[j], cos_sim[i][j]))</span><br></pre></td></tr></table></figure></li>
 </ul>
-
+<h2 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h2><h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sentence_transformers <span class="keyword">import</span> SentenceTransformer, util</span><br><span class="line">model = SentenceTransformer(<span class="string">&#x27;multi-qa-MiniLM-L6-cos-v1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">query_embedding = model.encode(<span class="string">&#x27;How big is London&#x27;</span>)</span><br><span class="line">passage_embedding = model.encode([<span class="string">&#x27;London has 9,787,426 inhabitants at the 2011 census&#x27;</span>,</span><br><span class="line">                                  <span class="string">&#x27;London is known for its finacial district&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Similarity:&quot;</span>, util.dot_score(query_embedding, passage_embedding))</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/26/sbert/" data-id="clkjsv5pm000297fyarte23fp" data-title="SBERT" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/26/sbert/" data-id="clkkhwddb0002lify651b5l6a" data-title="SBERT" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -151,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/" data-id="clkjsv5pn000397fyhigb5eyf" data-title="pycharm中的git操作" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/" data-id="clkkhwdd90001lify04c3cojs" data-title="pycharm中的git操作" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -189,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/24/test/" data-id="clkjsv5pk000197fyd0r4eq8h" data-title="测试使用hexo" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/24/test/" data-id="clkkhwddc0003lifyeiz27k8x" data-title="测试使用hexo" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -241,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/24/hello-world/" data-id="clkjsv5pe000097fybjd326b2" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/24/hello-world/" data-id="clkkhwdd50000lifycw64cxnu" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -271,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-id="clkjsv5py000d97fybs2o8pba" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-id="clkkhwddf0008lifyay0v6piu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -398,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/" data-id="clkjsv5pq000597fy4dbtbkne" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/07/%E7%AC%94%E8%AE%B0/%E6%9B%B4%E6%96%B0openssh/" data-id="clkkhwddd0005lifyeyu294z5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -429,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/" data-id="clkjsv5qg001297fy6likhpcf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/05/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/numpy/" data-id="clkkhwddv0012lify2fo85wyu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -464,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/03/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83/" data-id="clkjsv5qk001997fyagpd8mdp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/03/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83/" data-id="clkkhwddx0019lify8lnz7xes" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -519,7 +519,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/02/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A0%87%E5%87%86%E5%8C%96/" data-id="clkjsv5qk001a97fyfppe675m" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/02/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A0%87%E5%87%86%E5%8C%96/" data-id="clkkhwddy001alify6cxeeczf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -547,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/01/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B8%B8%E8%A7%81%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" data-id="clkjsv5qj001897fy8hy93eb7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/07/01/%E7%AC%94%E8%AE%B0/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B8%B8%E8%A7%81%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" data-id="clkkhwddx0018lifybyal6o7y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
