@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第一章 基本用法1.读取csv文件12train_file &#x3D; pd.read_csv(&amp;#x27;path&#x2F;to&#x2F;train.csv&amp;#x27;)# 读取到的train_file的类型是DataFrame  2.查看读取文件的信息（1）详细信息12train_file.info()# 返回文件的信息，类似于sql中的describe  ![image-20230427224414757](&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/04/27/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pandas/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 基本用法1.读取csv文件12train_file &#x3D; pd.read_csv(&amp;#x27;path&#x2F;to&#x2F;train.csv&amp;#x27;)# 读取到的train_file的类型是DataFrame  2.查看读取文件的信息（1）详细信息12train_file.info()# 返回文件的信息，类似于sql中的describe  ![image-20230427224414757](&amp;#x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-27T14:40:46.864Z">
+<meta property="article:modified_time" content="2023-04-28T08:18:28.783Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python/深度学习/pandas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/27/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pandas/" class="article-date">
+  <time class="dt-published" datetime="2023-04-27T14:40:46.864Z" itemprop="datePublished">2023-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章-基本用法"><a href="#第一章-基本用法" class="headerlink" title="第一章 基本用法"></a>第一章 基本用法</h2><h3 id="1-读取csv文件"><a href="#1-读取csv文件" class="headerlink" title="1.读取csv文件"></a>1.读取csv文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_file = pd.read_csv(<span class="string">&#x27;path/to/train.csv&#x27;</span>)</span><br><span class="line"><span class="comment"># 读取到的train_file的类型是DataFrame</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-查看读取文件的信息"><a href="#2-查看读取文件的信息" class="headerlink" title="2.查看读取文件的信息"></a>2.查看读取文件的信息</h3><h4 id="（1）详细信息"><a href="#（1）详细信息" class="headerlink" title="（1）详细信息"></a>（1）详细信息</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_file.info()</span><br><span class="line"><span class="comment"># 返回文件的信息，类似于sql中的describe</span></span><br></pre></td></tr></table></figure>
+
+<p>![image-20230427224414757](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230427224414757.png)</p>
+<h4 id="（2）只查看数据类型"><a href="#（2）只查看数据类型" class="headerlink" title="（2）只查看数据类型"></a>（2）只查看数据类型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_file.dtypes</span><br></pre></td></tr></table></figure>
+
+<p>![image-20230427224819247](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230427224819247.png)</p>
+<h3 id="3-查看前5行"><a href="#3-查看前5行" class="headerlink" title="3.查看前5行"></a>3.查看前5行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_file.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="4-去掉某列"><a href="#4-去掉某列" class="headerlink" title="4.去掉某列"></a>4.去掉某列</h3><p>使用<code>drop()</code>方法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/27/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pandas/" data-id="clkkqtvy6000i6dfy8gm04c1k" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/28/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/bayes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/24/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/26/sbert/">SBERT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

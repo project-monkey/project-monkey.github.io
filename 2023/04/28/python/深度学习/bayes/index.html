@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一 基本概念1.正例属于某个类别的实例 2.负例不属于某个类别的实例 3.真假预测工作的正确与否 4.组合情况 TP（真正例）：实际为正样本，且被分类器预测为正样本。 FP（假正例）：实际为负样本，但被分类器预测为正样本。    把负样本错误的预测成了正样本，所以是假正例 FN（假负例）：实际为正样本，但被分类器预测为负样本。  二 重要变量 Precision（精确率）：预测为正样本的样本中，实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/04/28/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/bayes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一 基本概念1.正例属于某个类别的实例 2.负例不属于某个类别的实例 3.真假预测工作的正确与否 4.组合情况 TP（真正例）：实际为正样本，且被分类器预测为正样本。 FP（假正例）：实际为负样本，但被分类器预测为正样本。    把负样本错误的预测成了正样本，所以是假正例 FN（假负例）：实际为正样本，但被分类器预测为负样本。  二 重要变量 Precision（精确率）：预测为正样本的样本中，实">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-28T01:56:09.514Z">
+<meta property="article:modified_time" content="2023-04-28T02:48:21.323Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python/深度学习/bayes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/28/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/bayes/" class="article-date">
+  <time class="dt-published" datetime="2023-04-28T01:56:09.514Z" itemprop="datePublished">2023-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一 基本概念"></a>一 基本概念</h2><h3 id="1-正例"><a href="#1-正例" class="headerlink" title="1.正例"></a>1.正例</h3><p>属于某个类别的实例</p>
+<h3 id="2-负例"><a href="#2-负例" class="headerlink" title="2.负例"></a>2.负例</h3><p>不属于某个类别的实例</p>
+<h3 id="3-真假"><a href="#3-真假" class="headerlink" title="3.真假"></a>3.真假</h3><p>预测工作的正确与否</p>
+<h3 id="4-组合情况"><a href="#4-组合情况" class="headerlink" title="4.组合情况"></a>4.组合情况</h3><ul>
+<li>TP（真正例）：实际为正样本，且被分类器预测为正样本。</li>
+<li>FP（假正例）：实际为负样本，但被分类器预测为正样本。    把负样本错误的预测成了正样本，所以是假正例</li>
+<li>FN（假负例）：实际为正样本，但被分类器预测为负样本。</li>
+</ul>
+<h2 id="二-重要变量"><a href="#二-重要变量" class="headerlink" title="二 重要变量"></a>二 重要变量</h2><ul>
+<li><p>Precision（精确率）：预测为正样本的样本中，实际为正样本的比例。</p>
+<p>Precision &#x3D; TP &#x2F; (TP + FP)</p>
+<p>其中，TP表示真正例（True Positive），FP表示假正例（False Positive）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Recall（召回率）：实际为正样本的样本中，被预测为正样本的比例。</p>
+<p>Recall &#x3D; TP &#x2F; (TP + FN)</p>
+<p>其中，TP表示真正例（True Positive），FN表示假负例（False Negative）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>F1-score：综合考虑Precision和Recall的指标，它是Precision和Recall的调和平均值。</p>
+<p>F1-score &#x3D; 2 * (Precision * Recall) &#x2F; (Precision + Recall)</p>
+<p>它的取值范围在[0,1]之间，越接近1表示分类器性能越好。</p>
+</li>
+</ul>
+<h2 id="三-性能分析"><a href="#三-性能分析" class="headerlink" title="三 性能分析"></a>三 性能分析</h2><ol>
+<li>Accuracy（准确率）：分类器正确分类的样本数与总样本数之比。Accuracy &#x3D; (TP+TN)&#x2F;(TP+FP+TN+FN)。其中TP（True Positive）表示真正例数，TN（True Negative）表示真反例数，FP（False Positive）表示假正例数，FN（False Negative）表示假反例数。</li>
+<li>Macro Average（宏平均）：计算每个类别的性能指标的平均值，而不考虑类别的样本数。宏平均适用于各个类别样本数相同时。例如，宏平均精确度（Precision）是将各个类别精确度之和除以类别数。即Precision &#x3D; (P1+P2+…+Pn)&#x2F;n，其中P1、P2、…、Pn分别为各个类别的精确度。</li>
+<li>Weighted Average（加权平均）：计算每个类别的性能指标的加权平均值，权重为每个类别的样本数占总样本数的比例。加权平均适用于各个类别样本数不同时。例如，加权平均精确度（Precision）是将各个类别精确度乘以对应类别样本数之和再除以总样本数。即Precision &#x3D; (P1<em>N1+P2</em>N2+…+Pn*Nn)&#x2F;(N1+N2+…+Nn)，其中P1、P2、…、Pn分别为各个类别的精确度，N1、N2、…、Nn分别为各个类别的样本数。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/28/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/bayes/" data-id="clkkqtvy4000e6dfye3yy0crb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/28/%E7%AC%94%E8%AE%B0/%E8%B5%84%E6%BA%90/macos%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/27/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pandas/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/26/sbert/">SBERT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

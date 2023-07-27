@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Flask基本概念1.视图：视图是处理HTTP请求并返回HTTP响应的函数或方法 2.WSGI：Web Server Gateway Interface, 是一种Web应用程序和Web服务器之间的通用接口标准 下面是一些优化 Flask 后端性能的建议：  使用缓存：使用缓存可以减少对数据库或其他外部资源的频繁访问。Flask 提供了多种缓存机制，如使用内存缓存（例如 Flask-Caching">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/27/python/Flask/flask01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Flask基本概念1.视图：视图是处理HTTP请求并返回HTTP响应的函数或方法 2.WSGI：Web Server Gateway Interface, 是一种Web应用程序和Web服务器之间的通用接口标准 下面是一些优化 Flask 后端性能的建议：  使用缓存：使用缓存可以减少对数据库或其他外部资源的频繁访问。Flask 提供了多种缓存机制，如使用内存缓存（例如 Flask-Caching">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-27T13:47:35.691Z">
+<meta property="article:modified_time" content="2023-05-29T02:26:00.121Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python/Flask/flask01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/27/python/Flask/flask01/" class="article-date">
+  <time class="dt-published" datetime="2023-05-27T13:47:35.691Z" itemprop="datePublished">2023-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Flask基本概念"><a href="#Flask基本概念" class="headerlink" title="Flask基本概念"></a>Flask基本概念</h2><p>1.视图：视图是处理HTTP请求并返回HTTP响应的函数或方法</p>
+<p>2.WSGI：Web Server Gateway Interface, 是一种Web应用程序和Web服务器之间的通用接口标准</p>
+<p>下面是一些优化 Flask 后端性能的建议：</p>
+<ol>
+<li>使用缓存：使用缓存可以减少对数据库或其他外部资源的频繁访问。Flask 提供了多种缓存机制，如使用内存缓存（例如 Flask-Caching 插件）、使用 Redis 缓存等。通过缓存常用的查询结果、计算结果或其他重复性操作的结果，可以提高响应速度和减轻服务器负载。</li>
+<li>优化数据库查询：合理使用数据库索引、减少不必要的查询操作、避免 N+1 查询问题等。优化数据库查询可以显著提升后端性能。可以使用 ORM 工具如 SQLAlchemy 来方便地进行数据库操作。</li>
+<li>异步任务处理：将一些耗时的操作（如发送电子邮件、处理大文件上传等）转化为异步任务，可以通过消息队列（如 Celery）或异步任务库（如 asyncio）来处理。这样可以释放服务器资源，提高并发处理能力。</li>
+<li>使用适当的服务器部署方式：选择适合你项目需求的服务器部署方式，如使用 Gunicorn、uWSGI 等作为 Flask 的 Web 服务器，使用 Nginx 作为反向代理服务器等。配置合适的并发数和线程数，以充分利用服务器资源。</li>
+<li>优化代码逻辑和算法：审查代码逻辑，寻找潜在的性能瓶颈和低效操作。合理选择算法和数据结构，减少时间复杂度和空间复杂度。</li>
+<li>缓存静态资源：使用 CDN 或浏览器缓存来缓存静态资源（如 CSS、JavaScript、图像等），减少服务器的请求负载。</li>
+<li>监控和调优：使用工具来监控和分析应用程序的性能，例如使用性能分析工具（如 Flask Profiler）或监控工具（如 Prometheus、Grafana）来识别潜在的性能问题，并进行相应的调优。</li>
+</ol>
+<p>这些是一些常见的优化技巧，具体的优化策略取决于你的项目需求和具体情况。需要仔细分析应用程序的瓶颈，进行性能测试和基准测试，并逐步改进和优化。</p>
+<h2 id="1-数据库连接池"><a href="#1-数据库连接池" class="headerlink" title="1.数据库连接池"></a>1.数据库连接池</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/27/python/Flask/flask01/" data-id="clkkqtvy5000g6dfy5c2n3j4f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/28/%E7%AC%94%E8%AE%B0/docker/%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/26/%E7%AC%94%E8%AE%B0/docker/docker%E9%83%A8%E7%BD%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/26/sbert/">SBERT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

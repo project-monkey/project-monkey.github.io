@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="model_selectionmodel_selection.StratifiedKFold1.Parameters n_splitint, default&#x3D;5 shuffle&#x3D; False random_state&#x3D;None  2.主要的作用StratifiedKFold的作用是帮助解决数据集中类别不平衡的问题，即某些类别的样本数量比其他类别的样本数量更多或更少的情">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/01/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/sklearn/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="model_selectionmodel_selection.StratifiedKFold1.Parameters n_splitint, default&#x3D;5 shuffle&#x3D; False random_state&#x3D;None  2.主要的作用StratifiedKFold的作用是帮助解决数据集中类别不平衡的问题，即某些类别的样本数量比其他类别的样本数量更多或更少的情">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-01T07:57:50.290Z">
+<meta property="article:modified_time" content="2023-05-01T08:09:16.094Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python/机器学习/sklearn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/01/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/sklearn/" class="article-date">
+  <time class="dt-published" datetime="2023-05-01T07:57:50.290Z" itemprop="datePublished">2023-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="model-selection"><a href="#model-selection" class="headerlink" title="model_selection"></a><code>model_selection</code></h2><h3 id="model-selection-StratifiedKFold"><a href="#model-selection-StratifiedKFold" class="headerlink" title="model_selection.StratifiedKFold"></a><code>model_selection.StratifiedKFold</code></h3><h4 id="1-Parameters"><a href="#1-Parameters" class="headerlink" title="1.Parameters"></a>1.Parameters</h4><ul>
+<li><code>n_split</code>int, default&#x3D;5</li>
+<li><code>shuffle</code>&#x3D; False</li>
+<li><code>random_state</code>&#x3D;None</li>
+</ul>
+<h4 id="2-主要的作用"><a href="#2-主要的作用" class="headerlink" title="2.主要的作用"></a>2.主要的作用</h4><p><code>StratifiedKFold</code>的作用是帮助解决数据集中类别不平衡的问题，即某些类别的样本数量比其他类别的样本数量更多或更少的情况。如果使用普通的交叉验证方法，可能会导致某些子集中某个类别的样本数量非常少，从而影响模型性能的评估。而使用<code>StratifiedKFold</code>可以确保每个子集中每个类别的样本数量都尽可能相似，从而更准确地评估模型的性能。</p>
+<h2 id="metrics"><a href="#metrics" class="headerlink" title="metrics"></a><code>metrics</code></h2><p><code>sklearn.metrics</code>是<code>Scikit-learn</code>机器学习库中的一个模块，提供了各种用于评估模型性能的指标和方法。它包含了许多常用的分类、回归、聚类等任务的评估指标，例如准确率、召回率、F1分数、ROC曲线、AUC（曲线下面积）等。</p>
+<p><code>sklearn.metrics</code>的主要作用是提供一种统一的方式来评估不同机器学习模型的性能，并帮助选择最佳的模型。通过使用<code>sklearn.metrics</code>中的指标，可以计算模型在给定数据集上的性能，并与其他模型进行比较。这些指标可以用于确定哪些模型效果最好，或者在调整模型的超参数时作为参考。</p>
+<p>此外，<code>sklearn.metrics</code>还提供了一些用于模型选择和调优的工具，例如交叉验证、网格搜索等。它还支持多种数据类型，例如numpy数组、pandas数据框、稀疏矩阵等，可以方便地与其他<code>Scikit-learn</code>模块一起使用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/01/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/sklearn/" data-id="clkkqtvy100096dfy7z3r2h7u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/01/python/jupyter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/28/%E7%AC%94%E8%AE%B0/%E8%B5%84%E6%BA%90/macos%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/26/sbert/">SBERT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/pycharm%E4%B8%AD%E7%9A%84git%E6%93%8D%E4%BD%9C/">pycharm中的git操作</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/test/">测试使用hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/%E7%AC%94%E8%AE%B0/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
