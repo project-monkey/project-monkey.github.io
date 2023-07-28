@@ -73,10 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-笔记/{&#39;score_item_id&#39; 3,  &#39;apply_department_id&#39; 1725,  &#39;apply_person_num&#39; &#39;17000715&#39;,  &#39;score_person_num&#39; &#39;17000715&#39;,  &#39;" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python/深度学习/matplotlib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/%7B'score_item_id'%203,%20%20'apply_department_id'%201725,%20%20'apply_person_num'%20'17000715',%20%20'score_person_num'%20'17000715',%20%20'/" class="article-date">
-  <time class="dt-published" datetime="2023-05-25T08:32:10.441Z" itemprop="datePublished">2023-05-25</time>
+    <a href="/2023/04/24/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/matplotlib/" class="article-date">
+  <time class="dt-published" datetime="2023-04-24T05:58:12.712Z" itemprop="datePublished">2023-04-24</time>
 </a>
     
   </div>
@@ -85,13 +85,96 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&#x27;score_item_id&#x27;</span>: <span class="number">3</span>, </span><br><span class="line"> <span class="string">&#x27;apply_department_id&#x27;</span>: <span class="number">1725</span>, </span><br><span class="line"> <span class="string">&#x27;apply_person_num&#x27;</span>: <span class="string">&#x27;17000715&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;score_person_num&#x27;</span>: <span class="string">&#x27;17000715&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;description&#x27;</span>: <span class="string">&#x27;1&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;value&#x27;</span>: <span class="string">&#x27;1&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;record_type_id&#x27;</span>: <span class="number">2</span>, </span><br><span class="line"> <span class="string">&#x27;keyword_id&#x27;</span>: <span class="number">4</span>, </span><br><span class="line"> <span class="string">&#x27;competency_item_id&#x27;</span>: <span class="number">1</span>, </span><br><span class="line"> <span class="string">&#x27;activity_score_id&#x27;</span>: <span class="literal">None</span>, </span><br><span class="line"> <span class="string">&#x27;approve_person_num&#x27;</span>: <span class="string">&#x27;17000715&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;status&#x27;</span>: <span class="number">0</span>&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="第一章-pyplot图表展示"><a href="#第一章-pyplot图表展示" class="headerlink" title="第一章 pyplot图表展示"></a>第一章 pyplot图表展示</h2><h3 id="1-只设置y"><a href="#1-只设置y" class="headerlink" title="1.只设置y"></a>1.只设置y</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">plt.ylabel(<span class="string">&#x27;some numbers&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>![image-20230424141008338](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230424141008338.png)</p>
+<p>你可能想知道为什么x轴的范围是0-3，而y轴是1-4。如果你提供一个单一的列表或数组来绘制，matplotlib会假定它是一个y值的序列，并自动为你生成x值。由于python范围从0开始，默认的x向量与y的长度相同，但从0开始；因此，x数据是[0, 1, 2, 3]。</p>
+<h3 id="2-设置x和y"><a href="#2-设置x和y" class="headerlink" title="2.设置x和y"></a>2.设置x和y</h3><p>plot 是一个多功能的函数，它可以接受任意数量的参数。例如，要绘制x与y的关系，你可以写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], [<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>])</span><br></pre></td></tr></table></figure>
+
+<p>![image-20230424141110354](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230424141110354.png)</p>
+<h3 id="3-设置格式"><a href="#3-设置格式" class="headerlink" title="3.设置格式"></a>3.设置格式</h3><p>对于每一对x，y的参数，有一个可选的第三个参数，它是格式字符串，表示绘图的颜色和线条类型。格式字符串的字母和符号来自MATLAB，你将颜色字符串与线条样式字符串连接起来。默认的格式字符串是’b-‘，它是一条蓝色的实线。</p>
+<p>例如，如果要用红色圆圈绘制上述图形，你可以发出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], [<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>],<span class="string">&#x27;ro&#x27;</span>)  <span class="comment"># r = red, o = dot</span></span><br><span class="line">plt.axis([<span class="number">0</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">20</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>s,t,![image-20230424141626030](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230424141626030.png)b</p>
+<h3 id="4-处理numpy数组"><a href="#4-处理numpy数组" class="headerlink" title="4.处理numpy数组"></a>4.处理numpy数组</h3><p>如果matplotlib只限于处理列表，那么它在数字处理方面将相当无用。一般来说，你会使用numpy数组。事实上，所有的序列在内部都被转换为numpy数组。下面的例子说明了在一个函数调用中使用数组绘制具有不同格式风格的几条线。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># evenly sampled time at 200ms intervals</span></span><br><span class="line">t = np.arange(<span class="number">0</span>, <span class="number">5</span>, <span class="number">0.2</span>)</span><br><span class="line"><span class="comment"># red dashes, blue squares and green triangles</span></span><br><span class="line">plt.plot(t, t,<span class="string">&#x27;r--&#x27;</span>,t**<span class="number">2</span>,<span class="string">&#x27;bs&#x27;</span>,t,t**<span class="number">3</span>,<span class="string">&#x27;g^&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-用关键词字符串绘图"><a href="#5-用关键词字符串绘图" class="headerlink" title="5.用关键词字符串绘图"></a>5.用关键词字符串绘图</h3><p>在某些情况下，你有数据的格式，可以让你用字符串访问特定的变量。例如，用<code>numpy.recarray</code>或<code>pandas.DataFrame</code>。</p>
+<p><code>Matplotlib</code>允许你用<code>data</code>关键字参数来提供这样一个对象。如果提供了，那么你就可以用这些变量对应的字符串生成图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&#x27;a&#x27;</span>: np.arange(<span class="number">50</span>),</span><br><span class="line">        <span class="string">&#x27;c&#x27;</span>: np.random.randint(<span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>),</span><br><span class="line">        <span class="string">&#x27;d&#x27;</span>: np.random.randn(<span class="number">50</span>)&#125;</span><br><span class="line">data[<span class="string">&#x27;b&#x27;</span>] = data[<span class="string">&#x27;a&#x27;</span>] + <span class="number">10</span> * np.random.randn(<span class="number">50</span>)</span><br><span class="line">data[<span class="string">&#x27;d&#x27;</span>] = np.<span class="built_in">abs</span>(data[<span class="string">&#x27;d&#x27;</span>]) * <span class="number">100</span></span><br><span class="line"></span><br><span class="line">plt.scatter(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, c=<span class="string">&#x27;c&#x27;</span>, s=<span class="string">&#x27;d&#x27;</span>, data=data)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;entry a&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;entry b&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-画子图，subplot"><a href="#6-画子图，subplot" class="headerlink" title="6.画子图，subplot"></a>6.画子图，<code>subplot</code></h3><p>也可以使用分类变量来创建一个图。Matplotlib允许你将分类变量直接传递给许多绘图函数。比如说</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;group_a&#x27;</span>, <span class="string">&#x27;group_b&#x27;</span>, <span class="string">&#x27;group_c&#x27;</span>]</span><br><span class="line">values = [<span class="number">1</span>,<span class="number">10</span>,<span class="number">100</span>]</span><br><span class="line">plt.figure(figsize = (<span class="number">9</span>,<span class="number">3</span>))</span><br><span class="line">plt.subplot(<span class="number">131</span>)</span><br><span class="line">plt.bar(names, values)</span><br><span class="line">plt.subplot(<span class="number">132</span>)</span><br><span class="line">plt.scatter(names, values)</span><br><span class="line">plt.subplot(<span class="number">132</span>)</span><br><span class="line">plt.scatter(names, values)</span><br><span class="line">plt.subplot(<span class="number">133</span>)</span><br><span class="line">plt.plot(names, values)</span><br><span class="line">plt.suptitle(<span class="string">&#x27;Categorical Plotting&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>![image-20230424143002493](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230424143002493.png)</p>
+<h3 id="7-控制线条属性"><a href="#7-控制线条属性" class="headerlink" title="7.控制线条属性"></a>7.控制线条属性</h3><h4 id="（1）方格grid"><a href="#（1）方格grid" class="headerlink" title="（1）方格grid"></a>（1）方格<code>grid</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">n, bins, patches = plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（2）子图subplot"><a href="#（2）子图subplot" class="headerlink" title="（2）子图subplot"></a>（2）子图<code>subplot</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">plt.figure(figsize = (<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line"><span class="comment"># 子图1</span></span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">False</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"><span class="comment"># 子图2</span></span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"><span class="comment"># 子图3</span></span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>![image-20230424210020990](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230424210020990.png)</p>
+<h3 id="8-自动调整图片"><a href="#8-自动调整图片" class="headerlink" title="8. 自动调整图片"></a>8. 自动调整图片</h3><h3 id="plt-tight-layout"><a href="#plt-tight-layout" class="headerlink" title="plt.tight_layout()"></a><code>plt.tight_layout()</code></h3><p>当图片的大小设置不合理时，可能出现溢出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">plt.figure(figsize = (<span class="number">5</span>,<span class="number">5</span>))   <span class="comment"># 图片的尺寸设置得过小</span></span><br><span class="line">mu, sigma = <span class="number">100</span>, <span class="number">15</span></span><br><span class="line">x = mu + sigma * np.random.randn(<span class="number">10000</span>)</span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">False</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.hist(x, <span class="number">50</span>, density=<span class="literal">True</span>, facecolor=<span class="string">&#x27;g&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># plt.tight_layout()</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>![image-20230430211758604](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230430211758604.png)</p>
+<p>左图是没有调整的，有图是调整过的</p>
+<h3 id="9-设置图表的大小和清晰度"><a href="#9-设置图表的大小和清晰度" class="headerlink" title="9.设置图表的大小和清晰度"></a>9.设置图表的大小和清晰度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>, <span class="number">72</span>), dpi=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>figsize</code>中的两个参数分别表示图片的宽度和高度</p>
+<p><code>dpi</code>是设置图片的清晰度</p>
+<h3 id="10-设置图表的标题"><a href="#10-设置图表的标题" class="headerlink" title="10.设置图表的标题"></a>10.设置图表的标题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.title(<span class="string">&#x27;Target Distribution in Keywords&#x27;</span>)</span><br><span class="line"><span class="comment"># 将图表的标题设置为 &#x27;Target Distribution in Keywords&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="11-设置横纵坐标格式"><a href="#11-设置横纵坐标格式" class="headerlink" title="11.设置横纵坐标格式"></a>11.设置横纵坐标格式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">plt.tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelsize=<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="12-设置图表的图例"><a href="#12-设置图表的图例" class="headerlink" title="12.设置图表的图例"></a>12.设置图表的图例</h3><p><code>plt.lengend()</code></p>
+<h2 id="第二章-图片展示"><a href="#第二章-图片展示" class="headerlink" title="第二章 图片展示"></a>第二章 图片展示</h2><p>对于<code>jupyter notebook</code>常用的命令为魔法命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline  <span class="comment"># 这是一种内联绘图</span></span><br></pre></td></tr></table></figure>
+
+<p>另外一种方式，在<code>python</code>中，为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
+
+<p><code>matplotlib</code>基于<code>pillow</code>库来装载图片</p>
+<p>现有如下图片：</p>
+<p><img src="https://matplotlib.org/stable/_images/stinkbug.png" alt="../../_images/stinkbug.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = np.asarray(Image.<span class="built_in">open</span>(<span class="string">&#x27;path/to/file&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">repr</span>(img))</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">array([[[<span class="number">104</span>, <span class="number">104</span>, <span class="number">104</span>],</span><br><span class="line">        [<span class="number">104</span>, <span class="number">104</span>, <span class="number">104</span>],</span><br><span class="line">        [<span class="number">104</span>, <span class="number">104</span>, <span class="number">104</span>],</span><br><span class="line">        ...,</span><br><span class="line">        [<span class="number">109</span>, <span class="number">109</span>, <span class="number">109</span>],</span><br><span class="line">        [<span class="number">109</span>, <span class="number">109</span>, <span class="number">109</span>],</span><br><span class="line">        [<span class="number">109</span>, <span class="number">109</span>, <span class="number">109</span>]],</span><br><span class="line">        ...,</span><br><span class="line">        [<span class="number">114</span>, <span class="number">114</span>, <span class="number">114</span>],</span><br><span class="line">        [<span class="number">114</span>, <span class="number">114</span>, <span class="number">114</span>],</span><br><span class="line">        [<span class="number">113</span>, <span class="number">113</span>, <span class="number">113</span>]], dtype=uint8)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-将numpy-arrays展示成图像"><a href="#1-将numpy-arrays展示成图像" class="headerlink" title="1.将numpy arrays展示成图像"></a>1.将<code>numpy arrays</code>展示成图像</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imgplot = plt.imshow(img)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/%7B'score_item_id'%203,%20%20'apply_department_id'%201725,%20%20'apply_person_num'%20'17000715',%20%20'score_person_num'%20'17000715',%20%20'/" data-id="clkm8pwxh0005dmfy9nfmgmxu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/04/24/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/matplotlib/" data-id="clkm8scch000fz6fyc8od3mnw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -103,10 +186,10 @@
 
 
   
-    <article id="post-笔记/docker/docker_heima" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python/深度学习/paddle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" class="article-date">
-  <time class="dt-published" datetime="2023-05-25T08:31:59.344Z" itemprop="datePublished">2023-05-25</time>
+    <a href="/2023/04/18/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/paddle/" class="article-date">
+  <time class="dt-published" datetime="2023-04-18T08:47:50.000Z" itemprop="datePublished">2023-04-18</time>
 </a>
     
   </div>
@@ -115,130 +198,23 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="查看容器ip"><a href="#查看容器ip" class="headerlink" title="查看容器ip"></a>查看容器ip</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> container_id</span><br></pre></td></tr></table></figure>
+        <h2 id="一、DOCs"><a href="#一、DOCs" class="headerlink" title="一、DOCs"></a>一、DOCs</h2><h3 id="1-paddle-nn-Embedding"><a href="#1-paddle-nn-Embedding" class="headerlink" title="1.paddle.nn.Embedding"></a>1.paddle.nn.Embedding</h3><p>嵌入层<code>(Embedding Layer)</code><br>用于构建Embedding的一个可调用对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">paddle</span>.nn.Embedding(num_embeddings, embedding_dim, padding_idx=<span class="literal">None</span>, sparse=<span class="literal">False</span>, weight_attr=<span class="literal">None</span>, name=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># num_embeddings(int)  嵌入字典的大小</span></span><br><span class="line"><span class="comment"># embedding_dim(int)  每个嵌入向量的维度</span></span><br><span class="line"><span class="comment"># padding_idx(int|None) 可选，padding_idx的区间为[-weight.shape[0], weight.shape[0]]</span></span><br><span class="line"><span class="comment">#												如果配置了padding_idx, 在训练中如果碰到此id，其参数及对应的梯度将会用0来填充</span></span><br><span class="line"><span class="comment"># sparse(bool) 可选，是否使用稀疏更新 在词嵌入权重交啊的情况下，使用稀疏更新训练速度更快，占用内存/显存更小</span></span><br><span class="line"><span class="comment"># weight_attr(ParamAttr) 可选，制定嵌入向量的配置，包括初始化方法，ParamAttr也是Paddle的类</span></span><br><span class="line"><span class="comment"># name 一般不用配置，name会作为网络层输出、权重的前缀标识</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="基于python镜像的后端Dockerfile"><a href="#基于python镜像的后端Dockerfile" class="headerlink" title="基于python镜像的后端Dockerfile"></a>基于python镜像的后端Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于python3.9镜像</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span></span><br><span class="line"><span class="comment"># 设置工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装项目依赖</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制项目代码</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对外暴露的端口号</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8123</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在启动时自动运行python run.py</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;run.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>docker容器转换成镜像</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器<span class="built_in">id</span> 镜像名称:版本号</span><br></pre></td></tr></table></figure>
-
-<h2 id="dockerfile概述及关键字"><a href="#dockerfile概述及关键字" class="headerlink" title="dockerfile概述及关键字"></a>dockerfile概述及关键字</h2><h3 id="一-dockerfile概念"><a href="#一-dockerfile概念" class="headerlink" title="一 dockerfile概念"></a>一 dockerfile概念</h3><p>dockerfile是一个文本文件</p>
-<p>包含了一条条的指令</p>
-<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><p>Docker Compose 是一个编排多容器分布式部署的工具，提供命令集管理容器化应用的完整开发周期，包括服务构建，启动和停止。</p>
-<p>使用步骤：</p>
-<p>1.利用Dockerfile定义运行环境镜像</p>
-<p>2.使用docker-compose.yml定义组成应用的各服务</p>
-<p>3.运行<code>docker-compose up</code> 启动应用</p>
-<h2 id="查看容器IP"><a href="#查看容器IP" class="headerlink" title="查看容器IP"></a>查看容器IP</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker inspect -f &#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27; 容器ID</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;thr&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;thr970726&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;thr&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># pwd</span><br><span class="line">/opt</span><br><span class="line"># mkdir -p docker_v/mysql/conf</span><br><span class="line"># cd docker_v/mysql/conf</span><br><span class="line"># touch my.cnf</span><br><span class="line"># docker run -p 3306:3306 --name mysql -v /opt/docker_v/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 -d imageID</span><br><span class="line">4ec4f56455ea2d6d7251a05b7f308e314051fdad2c26bf3d0f27a9b0c0a71414</span><br></pre></td></tr></table></figure>
+<p>举例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当前的输入</span></span><br><span class="line">padding_idx = -<span class="number">1</span></span><br><span class="line">x.data=[</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">4</span>,<span class="number">127</span>]</span><br><span class="line">]</span><br><span class="line"><span class="comment"># 则输入的shape:</span></span><br><span class="line">x.shape = [<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line"><span class="comment"># weight</span></span><br><span class="line">weight.shape = [<span class="number">128</span>, <span class="number">16</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 则我们输出的Tensor:</span></span><br><span class="line">out.shape = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">16</span>]</span><br><span class="line">out.data = [</span><br><span class="line">            [[<span class="number">0.129435295</span>, <span class="number">0.244512452</span>, ..., <span class="number">0.436322452</span>],[<span class="number">0.345421456</span>, <span class="number">0.524563927</span>, ..., <span class="number">0.144534654</span>]],</span><br><span class="line">            [[<span class="number">0.345249859</span>, <span class="number">0.124939536</span>, ..., <span class="number">0.194353745</span>],[<span class="number">0.945345345</span>, <span class="number">0.435394634</span>, ..., <span class="number">0.435345365</span>]],</span><br><span class="line">            [[<span class="number">0.945345345</span>, <span class="number">0.435394634</span>, ..., <span class="number">0.435345365</span>],[<span class="number">0.0</span>,         <span class="number">0.0</span>,         ..., <span class="number">0.0</span>        ]]</span><br><span class="line">            ] </span><br><span class="line"><span class="comment"># 其中，最后一个全0张量是因为padding = -1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<p>mysql连接远程数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 远程服务器IP地址 -P 3306 -u 用户名 -p</span><br><span class="line"></span><br><span class="line">mysql -h 172.17.0.6 -P 9306 -u thr -p thr970726</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="导出数据库文件"><a href="#导出数据库文件" class="headerlink" title="导出数据库文件"></a>导出数据库文件</h3><p>1.导出mysql文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u your_username -p your_database &gt; path/dump_file.sql</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>Docker 将宿主机的内容复制到容器中</p>
-<p>1.复制mysql内容</p>
-<p>将本地内容复制到docker中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp /path/to/01.sql mysql-container:/docker-entrypoint-initdb.d/01.sql</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /docker-entrypoint-initdb.d/init_mysql.sql</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-mongo"><a href="#2-mongo" class="headerlink" title="2.mongo"></a>2.mongo</h3><h4 id="下载mongo镜像"><a href="#下载mongo镜像" class="headerlink" title="下载mongo镜像"></a>下载mongo镜像</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mongo:3.6.3</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行mongo容器"><a href="#运行mongo容器" class="headerlink" title="运行mongo容器"></a>运行mongo容器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 27019:27017 --name mongo_container mongo:3.6.3</span><br></pre></td></tr></table></figure>
-
-<h4 id="导出mongodb的数据"><a href="#导出mongodb的数据" class="headerlink" title="导出mongodb的数据"></a>导出mongodb的数据</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h dbhost -d dbname -o dbdirectory</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>-h：</p>
-<p>MongoDB 所在服务器地址，例如：127.0.0.1，当然也可以指定端口号：127.0.0.1:27017</p>
-</li>
-<li><p>-d：</p>
-<p>需要备份的数据库实例，例如：test</p>
-</li>
-<li><p>-o：</p>
-<p>备份的数据存放位置，例如：c:\data\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个test目录，这个目录里面存放该数据库实例的备份数据。</p>
-</li>
-</ul>
-<p>对于16号机：</p>
-<p>我们可以将文件导出到当前路径下</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h 222.20.95.239 --port 27000 -d zssr_dev -o .</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="恢复mongodb的数据"><a href="#恢复mongodb的数据" class="headerlink" title="恢复mongodb的数据"></a>恢复mongodb的数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h &lt;hostname&gt;&lt;:port&gt; -d dbname &lt;path&gt;</span><br></pre></td></tr></table></figure>
-
-<p>对于16号机：</p>
-<p>由于我么之前设置的备份路径就是根目录下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">ls</span></span><br><span class="line">bin   data  docker-entrypoint-initdb.d	home	       js-yaml.js  lib32  libx32  mnt  proc  run   srv	tmp  var</span><br><span class="line">boot  dev   etc				init_mongo.js  lib	   lib64  media   opt  root  sbin  sys	usr  zssr_dev</span><br></pre></td></tr></table></figure>
-
-<p>我们要是用的文件路径就是<code>./zssr_dev</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h localhost:27017 -d zssr_dev ./zssr_dev</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>复制</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式：</span></span><br><span class="line">docker <span class="built_in">cp</span> /path/to/data.js mongodb-container:/data.js</span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">docker <span class="built_in">cp</span> init_mongo.js 155b95a1a0aadee53f8695e2800f53094ca39b52c40788ed2e55c06e24ccc51c:/init_mongo.js</span><br></pre></td></tr></table></figure>
-
-
-
-<p>构建数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use zssr_dev;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(&quot;path/to/build.js&quot;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>使用mongoimport命令使用.json文件构建mongo数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoimport --host your_host --port your_port --username your_username --password your_password --db your_database --collection your_collection --file your_file.json</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="服务器登录docker"><a href="#服务器登录docker" class="headerlink" title="服务器登录docker"></a>服务器登录docker</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker login &lt;仓库地址&gt;</span><br><span class="line">docker login 2649706356@qq.com</span><br><span class="line"><span class="comment"># 之后需要输入账户名和密码</span></span><br><span class="line"><span class="comment"># 我的账户名和密码分别是：</span></span><br><span class="line">tianhaoran</span><br><span class="line">thr970726</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+<h2 id="二、常用函数"><a href="#二、常用函数" class="headerlink" title="二、常用函数"></a>二、常用函数</h2><h3 id="1-save-load"><a href="#1-save-load" class="headerlink" title="1.save_load"></a>1.save_load</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paddle</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(</span><br><span class="line">	<span class="built_in">format</span> = <span class="string">&#x27;%(asctime)s - %(leveltime)s -%(message)s&#x27;</span>, level=logging.INFO	</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">save_model</span>()</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/25/%E7%AC%94%E8%AE%B0/docker/docker_heima/" data-id="clkm8pwxl000admfya4fb1w1i" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/04/18/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/paddle/" data-id="clkm8scci000hz6fycpg62zja" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -250,10 +226,10 @@
 
 
   
-    <article id="post-笔记/docker/docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python/python基础/effective_python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" class="article-date">
-  <time class="dt-published" datetime="2023-05-23T08:42:43.410Z" itemprop="datePublished">2023-05-23</time>
+    <a href="/2023/04/17/python/python%E5%9F%BA%E7%A1%80/effective_python/" class="article-date">
+  <time class="dt-published" datetime="2023-04-17T14:44:32.000Z" itemprop="datePublished">2023-04-17</time>
 </a>
     
   </div>
@@ -262,37 +238,177 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>如果你的 Flask 项目需要使用 MySQL、MongoDB 和 Neo4j 数据库，并且你希望将整个项目部署在 Docker 上，你可以按照以下步骤操作：</p>
-<ol>
-<li><p>编写 Dockerfile：在项目根目录下创建一个名为 Dockerfile 的文件，并编写用于构建镜像的 Dockerfile 内容。你可以使用多阶段构建来分别处理 Python 代码和数据库服务。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">DockerfileCopy code</span><br><span class="line"># 阶段一：构建 Python 代码</span><br><span class="line">FROM python:3.9 AS base</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># 安装项目依赖</span><br><span class="line">COPY requirements.txt .</span><br><span class="line">RUN pip install --no-cache-dir -r requirements.txt</span><br><span class="line"></span><br><span class="line"># 复制项目代码</span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># 阶段二：构建 MySQL 服务</span><br><span class="line">FROM mysql:latest AS mysql</span><br><span class="line"></span><br><span class="line"># 配置 MySQL 环境变量和初始化脚本</span><br><span class="line">ENV MYSQL_DATABASE=db_name \</span><br><span class="line">    MYSQL_USER=db_user \</span><br><span class="line">    MYSQL_PASSWORD=db_password \</span><br><span class="line">    MYSQL_ROOT_PASSWORD=root_password</span><br><span class="line"></span><br><span class="line">COPY init_mysql.sql /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段三：构建 MongoDB 服务</span><br><span class="line">FROM mongo:latest AS mongo</span><br><span class="line"></span><br><span class="line"># 配置 MongoDB 环境变量和初始化脚本</span><br><span class="line">ENV MONGO_INITDB_ROOT_USERNAME=mongo_user \</span><br><span class="line">    MONGO_INITDB_ROOT_PASSWORD=mongo_password</span><br><span class="line"></span><br><span class="line">COPY init_mongo.js /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段四：构建 Neo4j 服务</span><br><span class="line">FROM neo4j:latest AS neo4j</span><br><span class="line"></span><br><span class="line"># 配置 Neo4j 环境变量和初始化脚本</span><br><span class="line">ENV NEO4J_AUTH=neo4j/neo4j_password</span><br><span class="line"></span><br><span class="line">COPY init_neo4j.cypher /docker-entrypoint-initdb.d/</span><br><span class="line"></span><br><span class="line"># 阶段五：组合所有服务</span><br><span class="line">FROM base</span><br><span class="line"></span><br><span class="line"># 复制 MySQL、MongoDB 和 Neo4j 的服务配置</span><br><span class="line">COPY --from=mysql / /</span><br><span class="line">COPY --from=mongo / /</span><br><span class="line">COPY --from=neo4j / /</span><br><span class="line"></span><br><span class="line"># 设置启动命令</span><br><span class="line">CMD [&quot;python&quot;, &quot;app.py&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>请注意，上述 Dockerfile 是一个简化的示例，你需要根据你的项目结构和需求进行相应的修改。</p>
-</li>
-<li><p>编写数据库初始化脚本：根据每个数据库的需求，编写相应的初始化脚本。</p>
+        <h2 id="effective-python"><a href="#effective-python" class="headerlink" title="effective python"></a>effective python</h2><h2 id="第一章-基础"><a href="#第一章-基础" class="headerlink" title="第一章 基础"></a>第一章 基础</h2><h3 id="1-python风格"><a href="#1-python风格" class="headerlink" title="1.python风格"></a>1.python风格</h3><p><code>Python Enhancement Proposal #8</code>，简称<code>PEP8</code></p>
+<h3 id="2-命名"><a href="#2-命名" class="headerlink" title="2.命名"></a>2.命名</h3><p>PEP 8建议采用不同的方式来给Python代码中的各个部分命名，这样在阅读代码时，就可以根据这些名称看出它们在Python语言中的角色。</p>
 <ul>
-<li>对于 MySQL，可以创建一个名为 <code>init_mysql.sql</code> 的脚本文件，包含数据库和表的初始化语句。</li>
-<li>对于 MongoDB，可以创建一个名为 <code>init_mongo.js</code> 的脚本文件，包含初始化集合和文档的语句。</li>
-<li>对于 Neo4j，可以创建一个名为 <code>init_neo4j.cypher</code> 的脚本文件，包含初始化节点和关系的 Cypher 查询。</li>
+<li><p>函数、变量及属性用小写字母来拼写，各单词之间用下划线相连，例如：<code>lowercase_underscore</code></p>
+</li>
+<li><p>受保护的实例属性，用一个下划线开头，例如：</p>
+</li>
+<li><p><code>_leading_underscore</code></p>
+</li>
+<li><p>私有的实例属性，用两个下划线开头，例如：<code>__double_leading_underscore</code></p>
+</li>
+<li><p>类（包括异常）命名时，每个单词的首字母均大写，例如：<code>CapitalizedWord</code></p>
+</li>
+<li><p>模块级别的常量，所有字母都大写，各单词之间用下划线相连，例如：<code>ALL_CAPS</code></p>
+</li>
+<li><p>类中的实例方法，应该把第一个参数命名为<code>self</code>，用来表示该对象本身</p>
+</li>
+<li><p>类方法的第一个参数，应该命名为<code>cls</code>，用来表示这个类本身</p>
+</li>
 </ul>
-<p>你可以根据数据库的需求和你的项目来编写相应的初始化脚本。</p>
-</li>
-<li><p>构建和运行 Docker 镜像：在项目根目录下，使用以下命令来构建 Docker 镜像并运行容器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shellCopy code</span><br><span class="line"># 构建镜像</span><br><span class="line">docker build -t your_image_name .</span><br><span class="line"></span><br><span class="line"># 运行容器</span><br><span class="line">docker run -d -p 5000:5000 --name your_container_name your_image_name</span><br></pre></td></tr></table></figure>
+<h4 id="单下划线和双下划线"><a href="#单下划线和双下划线" class="headerlink" title="单下划线和双下划线"></a>单下划线和双下划线</h4><p>python中通常用<code>下划线</code>作为<code>前缀</code>来表示属性的访问权限<br>具体来说，有两种下划线类型，单下划线 <code>_</code> 和双下划线 <code>__</code></p>
+<ul>
+<li>单下划线表示收保护的属性，可以被访问，但是不被认为是公共的API</li>
+<li>双下划线表示为”私有属性“，他们只能在累的内部被访问，无法从外部直接访问，尝试从外部时，会返回<code>AttributeError</code>异常</li>
+</ul>
+<h3 id="3-bytes和str"><a href="#3-bytes和str" class="headerlink" title="3.bytes和str"></a>3.bytes和str</h3><p>python中有两种方法表示字符序列：<code>bytes</code>和<code>str</code></p>
+<ul>
+<li><code>bytes</code>表示原始数据，8为无符号值</li>
+<li><code>str</code>表示人类使用的文本字符</li>
+</ul>
+<p><code>str</code> –编码–&gt;<code>bytes</code>–解码–&gt;<code>str</code></p>
+<p>两者的相互转换：<code>to_str()</code>和<code>to_bytes()</code></p>
+<h3 id="4-字符串的格式化"><a href="#4-字符串的格式化" class="headerlink" title="4.字符串的格式化"></a>4.字符串的格式化</h3><h4 id="4-1-C风格的格式化"><a href="#4-1-C风格的格式化" class="headerlink" title="4.1 C风格的格式化"></a>4.1 C风格的格式化</h4><p><code>Python中常常使用%来格式化字符串</code></p>
+<ul>
+<li><code>%</code>左边的文本模板叫做格式字符串(format string)</li>
+<li><code>%</code>右边可以写多个值所构成的元组，用来替换格式字符串中的相关符号</li>
+</ul>
+<p>C格式风格的格式化字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0b10111011</span></span><br><span class="line">b = <span class="number">0xc5f</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Binary is %d, hex is %d&#x27;</span> % (a,b))</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Binary <span class="keyword">is</span> <span class="number">187</span>,<span class="built_in">hex</span> <span class="keyword">is</span> <span class="number">3167</span></span><br></pre></td></tr></table></figure>
+<p>python中的格式说明符<code>%s,%d等</code>一般来自c语言</p>
+<h4 id="4-2-c格式的说明符有四个缺点"><a href="#4-2-c格式的说明符有四个缺点" class="headerlink" title="4.2 c格式的说明符有四个缺点"></a>4.2 c格式的说明符有四个缺点</h4><ul>
+<li>%右侧的元组中如果传参顺序发生了变化，就会出错</li>
+<li>填充模板之前，经常要先处理哪些要填进去的值，导致整个表达式过长</li>
+<li>如果想要让一个值填充字符串中的多个位置，就需要在%右侧多次重复该值</li>
+<li>把dict写到格式化表达式中会让代码变多</li>
+</ul>
+<h4 id="4-3-高级格式化-format"><a href="#4-3-高级格式化-format" class="headerlink" title="4.3 高级格式化.format()"></a>4.3 高级格式化<code>.format()</code></h4><ul>
+<li>使用<code>&#123;&#125;</code>替代原来的占位符<code>%s,%d</code>等</li>
+<li>使用<code>字符串.format(填充值1，填充值2)</code>的格式来表达</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">key = <span class="string">&#x27;name&#x27;</span></span><br><span class="line">value = <span class="string">&#x27;tianhaoran2333&#x27;</span></span><br><span class="line"></span><br><span class="line">formatted = <span class="string">&#x27;&#123;&#125; = &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(key,value)</span><br><span class="line"><span class="built_in">print</span>(formatted)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">my_var = <span class="number">1.234</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>你可以在<code>&#123;&#125;</code>里写个<code>冒号</code>，然后把<code>格式说明符</code>写在<code>冒号</code>的<code>右边</code>，用以规定format方法所接收的这个值应该按照怎样的格式来调整。在Python解释器里输入<code>help(&#39;FORMATTING&#39;)</code>，可以详细查看str.format使用的这套格式说明符所依据的规则。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">formatted = <span class="string">&#x27;&#123;:&lt;10&#125; = &#123;:.2f&#125;&#x27;</span>.<span class="built_in">format</span>(key,value)</span><br><span class="line"><span class="built_in">print</span>(formatted)</span><br></pre></td></tr></table></figure>
 
-<p>这将会构建一个名为 <code>your_image_name</code> 的 Docker 镜像，并将容器的 5000 端口映射到主机的 5000 端口。你可以根据需要进行修改。</p>
-<p>当容器启动后，你的 Flask 项目将会运行，并可以访问 MySQL、MongoDB 和 Neo4j 数据库服务。</p>
-</li>
-</ol>
-<p>请确保在 Docker 环境中配置好相应的数据库连接参数，并在 Dockerfile 中正确地配置数据库服务的环境变量和初始化脚本。</p>
-<p>希望这些步骤能帮助你将 Flask 项目与 MySQL、MongoDB 和 Neo4j 数据库一起部署到 Docker 上。</p>
-<h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><p>docker run -d -p 9011:3306 –name mysql_test_cont mysql:thr_test</p>
-<h2 id="启动容器命令行"><a href="#启动容器命令行" class="headerlink" title="启动容器命令行"></a>启动容器命令行</h2><p>docker exec -it 37808822948c4a16189d9a429302cd1b408fe10f05a234fcac9f37de5266f88a &#x2F;bin&#x2F;sh</p>
+<p>但是这种方式并不能解决<code>缺点2</code></p>
+<h4 id="4-4-f-string"><a href="#4-4-f-string" class="headerlink" title="4.4 f_string"></a>4.4 f_string</h4><p><code>f_string</code>是python3.6中新加入的一种特性，叫做<code>插值格式字符串</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">formatted = <span class="string">f&#x27;<span class="subst">&#123;key&#125;</span>=<span class="subst">&#123;value&#125;</span>&#x27;</span></span><br><span class="line"></span><br><span class="line">formatted = <span class="string">f&#x27;<span class="subst">&#123;key!r:&lt;<span class="number">0</span>&#125;</span> = <span class="subst">&#123;value:<span class="number">.2</span>f&#125;</span>&#x27;</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="4-5-SQL注入和参数化查询"><a href="#4-5-SQL注入和参数化查询" class="headerlink" title="4.5 SQL注入和参数化查询"></a>4.5 SQL注入和参数化查询</h4><p>直接使用变量嵌入的<code>f-string</code>中会导致sql注入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 错误写法（会导致SQL注入的写法）</span></span><br><span class="line">sql = <span class="string">f&quot;selece * from table where `<span class="subst">&#123;key&#125;</span>` = &#x27;<span class="subst">&#123;value&#125;</span>&#x27;&quot;</span></span><br><span class="line">cur = connect_mysql()</span><br><span class="line">cur.execute(sql)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正确写法</span></span><br><span class="line">sql = <span class="string">&#x27;select * from table where ? = ?&#x27;</span></span><br><span class="line">cur.execute(sql, (key,value))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-列表的循环"><a href="#7-列表的循环" class="headerlink" title="7. 列表的循环"></a>7. 列表的循环</h3><h4 id="7-1-常用的list遍历方式"><a href="#7-1-常用的list遍历方式" class="headerlink" title="7.1 常用的list遍历方式"></a>7.1 常用的list遍历方式</h4><p>方式1：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">alphabet_list = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"><span class="comment"># 方式1.1</span></span><br><span class="line"><span class="keyword">for</span> alpha <span class="keyword">in</span> alphabet_list :</span><br><span class="line">   	<span class="built_in">print</span>(alpha)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 方式1.2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(alphabet_list)):</span><br><span class="line">    alpha = alphabet_list[i]</span><br><span class="line">    <span class="built_in">print</span>(alpha)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>方式2：enumerate</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用enumerate</span></span><br><span class="line"><span class="comment"># 2.1</span></span><br><span class="line">it = <span class="built_in">enumerate</span>(alphabet_list)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(it))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(it))</span><br><span class="line"><span class="comment"># &gt;&gt;&gt; </span></span><br><span class="line"><span class="comment"># &#x27;a&#x27;</span></span><br><span class="line"><span class="comment"># &#x27;b&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.2</span></span><br><span class="line"><span class="keyword">for</span> i,alpha <span class="keyword">in</span> <span class="built_in">enumerate</span>(alphabet_list):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;i+<span class="number">1</span>&#125;</span>:<span class="subst">&#123;alpha&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &gt;&gt;&gt;</span></span><br><span class="line"><span class="comment"># 1:a</span></span><br><span class="line"><span class="comment"># 2:b</span></span><br><span class="line"><span class="comment"># 3:c</span></span><br><span class="line"><span class="comment"># 4:d</span></span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-使用zip函数同时遍历两个迭代器"><a href="#8-使用zip函数同时遍历两个迭代器" class="headerlink" title="8.使用zip函数同时遍历两个迭代器"></a>8.使用zip函数同时遍历两个迭代器</h3><p>应用场景：有两个列表，一个<code>源列表</code>，一个<code>派生列表</code>，源列表和派生列表之间每个<code>对应位置的元素</code>有一定的关系</p>
+<p>zip可以将两个或更多的iterator封装成<code>惰性生成器(lazy generator)</code></p>
+<h4 id="8-1-派生列表"><a href="#8-1-派生列表" class="headerlink" title="8.1 派生列表"></a>8.1 派生列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;tianhaoran&#x27;</span>,<span class="string">&#x27;caiyuanpei&#x27;</span>,<span class="string">&#x27;ergou&#x27;</span>]</span><br><span class="line">counts = [<span class="built_in">len</span>(n) <span class="keyword">for</span> n <span class="keyword">in</span> names]</span><br><span class="line"><span class="built_in">print</span>(counts)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>[10,10,5]</span></span><br><span class="line"><span class="string">这里的counts就是names的派生列表</span></span><br><span class="line"><span class="string">如果要同时遍历这两个list来求得最长的名字，则可以使用enumerate</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">max_count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> name,count <span class="keyword">in</span> <span class="built_in">zip</span>(names, counts):</span><br><span class="line">    <span class="keyword">if</span> count&gt;longest_count:</span><br><span class="line">        longest_name = name</span><br><span class="line">        longest_count = count</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-2-长度不一致的两个列表："><a href="#8-2-长度不一致的两个列表：" class="headerlink" title="8.2 长度不一致的两个列表："></a>8.2 长度不一致的两个列表：</h4><p>这种情况一般发生在，已经创建了派生列表，在这之后又改动了源列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">names.append(<span class="string">&#x27;Andrew&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> name, count <span class="keyword">in</span> <span class="built_in">zip</span>(names,counts):</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">tianhaoran</span></span><br><span class="line"><span class="string">caiyuanpei</span></span><br><span class="line"><span class="string">ergou</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">这时候只有这三个名字，因为迭代器要同时向后，当一个迭代器停止，另一个迭代器就也会停止</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如何处理这种情况：可以使用<code>zip_longest</code>函数</p>
+<h4 id="8-3-使用场景："><a href="#8-3-使用场景：" class="headerlink" title="8.3 使用场景："></a>8.3 使用场景：</h4><p>我们一个列表，其中的每个元素都是一个三元组，我们希望打印他的前50个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dataset = [(e1,e2,e3),(f1,f2,f3),...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果只是简单打印，我们可以使用列表下标的方法：</span></span><br><span class="line"><span class="built_in">print</span>(dataset[:<span class="number">50</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 但是，现在我们需要加入其他的字符，这个时候可以用zip()</span></span><br><span class="line"><span class="comment"># 因为zip达到某一个列表的末尾就会停止，所以我们可以使用zip(range(希望打印的长度),列表)</span></span><br><span class="line"><span class="comment"># 因为下标我们不需要接收，所以用for _, _用来占位</span></span><br><span class="line"><span class="keyword">for</span> _,(l1, l2, l3) <span class="keyword">in</span> <span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">50</span>),dataset):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;l1 is&quot;</span>, l1, <span class="string">&quot;l2 is&quot;</span>,l2, <span class="string">&quot;l3 is&quot;</span>l3)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="9-不要在for和while中写else块"><a href="#9-不要在for和while中写else块" class="headerlink" title="9. 不要在for和while中写else块"></a>9. 不要在for和while中写else块</h3><h3 id="10-用赋值表达式减少重复代码"><a href="#10-用赋值表达式减少重复代码" class="headerlink" title="10.用赋值表达式减少重复代码"></a>10.用赋值表达式减少重复代码</h3><p>赋值表达式是<code>python3.8</code>的新语法，会使用<code>海象操作符</code></p>
+<ul>
+<li><code>a=b</code>是一条普通的赋值语句，读作<code>a equals b</code></li>
+<li><code>a :=b</code>则是赋值表达式，读作<code>a walrus b</code></li>
+</ul>
+<p>主要的作用就是在<code>if表达式</code>中，直接判断一个表达式的值，来决定是否运行if块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">fresh_fruit = &#123;</span><br><span class="line">	<span class="string">&#x27;apple&#x27;</span>:<span class="number">10</span>,</span><br><span class="line">    <span class="string">&#x27;banana&#x27;</span>:<span class="number">8</span>,</span><br><span class="line">    <span class="string">&#x27;lemon&#x27;</span>:<span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; 一般方法&#x27;&#x27;&#x27;</span></span><br><span class="line">count = fresh_fruit.get(<span class="string">&#x27;lemon&#x27;</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">if</span> count:</span><br><span class="line">    func1()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    func2()</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; 赋值表达式&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">if</span> count:=fresh_fruit.get(<span class="string">&#x27;lemon&#x27;</span>,<span class="number">0</span>)</span><br><span class="line">	func1()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    func2()</span><br><span class="line">    </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; 一般方法&#x27;&#x27;&#x27;</span></span><br><span class="line">count = fresh_fruit.get(<span class="string">&#x27;lemon&#x27;</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">if</span> count &gt;=<span class="number">4</span>:</span><br><span class="line">    func1()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    func2()</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; 赋值表达式&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">if</span> (count:=fresh_fruit.get(<span class="string">&#x27;lemon&#x27;</span>,<span class="number">0</span>)) &gt;=<span class="number">4</span></span><br><span class="line">	func1()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    func2()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="第二章-列表与字典"><a href="#第二章-列表与字典" class="headerlink" title="第二章 列表与字典"></a>第二章 列表与字典</h2><h3 id="11-序列切割"><a href="#11-序列切割" class="headerlink" title="11. 序列切割"></a>11. 序列切割</h3><h3 id="12-切片和步幅"><a href="#12-切片和步幅" class="headerlink" title="12.切片和步幅"></a>12.切片和步幅</h3><p>格式：<code>somelist[start:end:stride]</code></p>
+<p>没必要全都填写，比如：</p>
+<ul>
+<li><p>取得奇数位置上的元素：<code>x[::2]</code></p>
+</li>
+<li><p>取得偶数位置上的元素：<code>x[1::2]</code></p>
+</li>
+<li><p>反转：填充步幅为<code>-1</code>：<code>x[::-1]</code></p>
+<ul>
+<li>例如：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(x[::-<span class="number">1</span>])</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; [&#x27;d&#x27;, &#x27;c&#x27;, &#x27;b&#x27;, &#x27;a&#x27;] &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; 这种方式也可以对字符串str或bytes使用 &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">y1= <span class="string">&#x27;abcd&#x27;</span></span><br><span class="line">y2= <span class="string">b&#x27;abcd&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(y1[::-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(y2[::-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; dcba &#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; b&#x27;dcba&#x27;  &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; 注意：这种方法不能用于utf-8的字节数据&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">w = <span class="string">&#x27;寿司&#x27;</span></span><br><span class="line">x = w.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">y = x[::-<span class="number">1</span>]</span><br><span class="line">z = y.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;D:\study\pythonProject1\12.py&quot;, line 12, in &lt;module&gt;</span></span><br><span class="line"><span class="string">    z = y.decode(&#x27;utf-8&#x27;)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="13-unpacking捕获多个元素"><a href="#13-unpacking捕获多个元素" class="headerlink" title="13.unpacking捕获多个元素"></a>13.unpacking捕获多个元素</h3><p>方法：使用一个代<code>*</code>号的变量来接受多个返回元素</p>
+<p>带星号的表达式会形成一份列表实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">比如，我们想把列表中的第一个元素单独拿出来，然后将剩下的元素放在一起</span><br><span class="line">我们可以使用之前学过的切片操作</span><br><span class="line"></span><br><span class="line">element_list = [<span class="number">12</span>,<span class="number">23</span>,<span class="number">43</span>,<span class="number">98</span>,<span class="number">91</span>]</span><br><span class="line">first_element = element_list[<span class="number">0</span>]</span><br><span class="line">others = element_list[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;这样虽然没问题，但是看起来比较乱&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;更好的方法：使用带星号的unpacking方式&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">first_element,*others = element_list</span><br><span class="line"><span class="built_in">print</span>(first_element, others)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">12</span> [<span class="number">23</span>,<span class="number">43</span>,<span class="number">98</span>,<span class="number">91</span>]</span><br></pre></td></tr></table></figure>
+
+<p>此外，我们也可以将这个方法用于任意位置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">first_element, *others, last_element = element_list</span><br><span class="line"><span class="built_in">print</span>(first_element, others, last_element)</span><br><span class="line"><span class="number">12</span> [<span class="number">23</span>,<span class="number">43</span>,<span class="number">98</span>] <span class="number">91</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="14-使用成员函数sort-中的key参数实现复杂排序功能"><a href="#14-使用成员函数sort-中的key参数实现复杂排序功能" class="headerlink" title="14.使用成员函数sort()中的key参数实现复杂排序功能"></a>14.使用成员函数sort()中的key参数实现复杂排序功能</h3><p>成员函数：<code>list.sort()</code></p>
+<p>常用方法：使用<code>lambda表达式</code></p>
+<p>使用例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tool</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, weight</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.weight = weight</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;Tool(<span class="subst">&#123;self.name!r&#125;</span>,<span class="subst">&#123;self.weight&#125;</span>)&#x27;</span></span><br><span class="line"></span><br><span class="line">tools = [</span><br><span class="line">    Tool(<span class="string">&#x27;level&#x27;</span>, <span class="number">3.5</span>),</span><br><span class="line">    Tool(<span class="string">&#x27;hammer&#x27;</span>, <span class="number">1.25</span>),</span><br><span class="line">    Tool(<span class="string">&#x27;screwdriver&#x27;</span>, <span class="number">0.5</span>),</span><br><span class="line">    Tool(<span class="string">&#x27;chisel&#x27;</span>, <span class="number">0.25</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># tools.sort()</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(tools)</span><br><span class="line">    <span class="comment"># tools.sort()  # 不能直接比较两个对象</span></span><br><span class="line">    tools.sort(key=<span class="keyword">lambda</span> x:x.name) <span class="comment"># 按照name的ascII值排序</span></span><br><span class="line">    <span class="built_in">print</span>(tools)</span><br><span class="line">    tools.sort(key=<span class="keyword">lambda</span> a:a.weight)</span><br><span class="line">    <span class="built_in">print</span>(tools)</span><br><span class="line">    tools.sort(key=<span class="keyword">lambda</span> a:a.weight, reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(tools)</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;</span><br><span class="line">[Tool(<span class="string">&#x27;level&#x27;</span>,<span class="number">3.5</span>), Tool(<span class="string">&#x27;hammer&#x27;</span>,<span class="number">1.25</span>), Tool(<span class="string">&#x27;screwdriver&#x27;</span>,<span class="number">0.5</span>), Tool(<span class="string">&#x27;chisel&#x27;</span>,<span class="number">0.25</span>)]</span><br><span class="line">[Tool(<span class="string">&#x27;chisel&#x27;</span>,<span class="number">0.25</span>), Tool(<span class="string">&#x27;hammer&#x27;</span>,<span class="number">1.25</span>), Tool(<span class="string">&#x27;level&#x27;</span>,<span class="number">3.5</span>), Tool(<span class="string">&#x27;screwdriver&#x27;</span>,<span class="number">0.5</span>)]</span><br><span class="line">[Tool(<span class="string">&#x27;chisel&#x27;</span>,<span class="number">0.25</span>), Tool(<span class="string">&#x27;screwdriver&#x27;</span>,<span class="number">0.5</span>), Tool(<span class="string">&#x27;hammer&#x27;</span>,<span class="number">1.25</span>), Tool(<span class="string">&#x27;level&#x27;</span>,<span class="number">3.5</span>)]</span><br><span class="line">[Tool(<span class="string">&#x27;level&#x27;</span>,<span class="number">3.5</span>), Tool(<span class="string">&#x27;hammer&#x27;</span>,<span class="number">1.25</span>), Tool(<span class="string">&#x27;screwdriver&#x27;</span>,<span class="number">0.5</span>), Tool(<span class="string">&#x27;chisel&#x27;</span>,<span class="number">0.25</span>)]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="15-字典中键值对的顺序问题"><a href="#15-字典中键值对的顺序问题" class="headerlink" title="15.字典中键值对的顺序问题"></a>15.字典中键值对的顺序问题</h3><p>python3.5以后，字典内容的顺序是按照<code>创建字典时的插入顺序</code>确定的</p>
+<p>也就是说，dict中的内容顺序也是确定的</p>
+<p>另外，内置的<code>collections</code>模块中的<code>OrderedDict</code>也具备同样功能</p>
+<p>当需要频繁的插入和弹出键值对时，<code>OrderedDict</code>更加合适</p>
+<p>我们可以使用<code>.keys()</code>取出字典中的键</p>
+<h2 id="第三章-函数"><a href="#第三章-函数" class="headerlink" title="第三章 函数"></a>第三章 函数</h2><h3 id="19-不要把函数返回的多个数值拆分到三个以上的变量中"><a href="#19-不要把函数返回的多个数值拆分到三个以上的变量中" class="headerlink" title="19.不要把函数返回的多个数值拆分到三个以上的变量中"></a>19.不要把函数返回的多个数值拆分到三个以上的变量中</h3><p>在返回多个值时，返回的类型是<code>元组</code></p>
+<p>一般会使用带<code>*</code>的变量接收那些不需要捕获的元素</p>
+<h3 id="20-遇到意外状况应该抛出异常，而不是返回None"><a href="#20-遇到意外状况应该抛出异常，而不是返回None" class="headerlink" title="20.遇到意外状况应该抛出异常，而不是返回None"></a>20.遇到意外状况应该抛出异常，而不是返回None</h3><h3 id="21-闭包"><a href="#21-闭包" class="headerlink" title="21.闭包"></a>21.闭包</h3><h4 id="21-1-什么是闭包"><a href="#21-1-什么是闭包" class="headerlink" title="21.1 什么是闭包"></a>21.1 什么是闭包</h4><p>闭包是什么？以下是chatgpt给出的解释：</p>
+<blockquote>
+<p>在 Python 中，闭包是指一个函数可以访问另一个函数内部的变量，并且可以在该函数调用结束后仍然保持对这些变量的访问。这种情况发生在内部函数引用了外部函数的变量或参数时。</p>
+</blockquote>
+<p>通常来说，闭包就是外层函数内部的内层函数，使用了外层函数中的变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">counter</span>():</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        <span class="keyword">nonlocal</span> count</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line">c = counter()</span><br><span class="line"><span class="built_in">print</span>(c())  <span class="comment"># 输出 1</span></span><br><span class="line"><span class="built_in">print</span>(c())  <span class="comment"># 输出 2</span></span><br><span class="line"><span class="built_in">print</span>(c())  <span class="comment"># 输出 3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="21-2-python引用变量"><a href="#21-2-python引用变量" class="headerlink" title="21.2 python引用变量"></a>21.2 python引用变量</h4><p>python在引用变量时，解释器会按照下面的顺序对各个作用域<code>(scope)</code>进行查找</p>
+<ul>
+<li>当前函数的作用域</li>
+<li>外围作用域（包含当前函数的其他函数的作用域）</li>
+<li>全局作用域，即包含当前代码的那个模块所对应的作用域</li>
+<li>内置作用域，包含len和str函数的作用域</li>
+</ul>
+<p>如果这些作用域内都没有定义相符名称的变量，就抛出NameError异常</p>
+<h4 id="21-3-经典错误"><a href="#21-3-经典错误" class="headerlink" title="21.3 经典错误"></a>21.3 经典错误</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">8</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">group = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sort_priority2</span>(<span class="params">numbers, group</span>):</span><br><span class="line">    found = <span class="literal">False</span>   <span class="comment"># 作用域是sort_priority</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">helper</span>(<span class="params">x</span>):</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">in</span> group:</span><br><span class="line">            found =<span class="literal">True</span>    <span class="comment"># 这里的found根本没有被用到，因为他的作用域是helper</span></span><br><span class="line">            <span class="keyword">return</span> (<span class="number">0</span>,x)</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">1</span>,x)</span><br><span class="line">    numbers.sort(key=helper)</span><br><span class="line">    <span class="keyword">return</span> found</span><br><span class="line">found = sort_priority2(numbers, group)</span><br><span class="line"><span class="built_in">print</span>(found)  </span><br><span class="line"><span class="built_in">print</span>(numbers)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="26-修饰器"><a href="#26-修饰器" class="headerlink" title="26.修饰器"></a>26.修饰器</h3><p>Python修饰器（Decorator）是一种特殊的函数，用于修改其他函数的功能，可以让函数在运行之前和执行完之后分别运行某些代码。它们的主要目的是使代码更加简洁，易于阅读和维护。</p>
+<p><code>这是个很有用的机制，能够确保用户以正确的方式使用函数，也能够用来调试程序或实现函数注册功能，此外还有许多用途。</code></p>
+<h2 id="第八章-稳定与性能"><a href="#第八章-稳定与性能" class="headerlink" title="第八章 稳定与性能"></a>第八章 稳定与性能</h2><h3 id="65-try-except-else-finally结构"><a href="#65-try-except-else-finally结构" class="headerlink" title="65.try&#x2F;except&#x2F;else&#x2F;finally结构"></a>65.try&#x2F;except&#x2F;else&#x2F;finally结构</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/23/%E7%AC%94%E8%AE%B0/docker/docker/" data-id="clkm8pwxk0009dmfy7p24ef7m" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/04/17/python/python%E5%9F%BA%E7%A1%80/effective_python/" data-id="clkm8sccc0008z6fyh7rk5bk3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -304,10 +420,10 @@
 
 
   
-    <article id="post-笔记/论文/论文精读/T5_model" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python/python基础/python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/05/16/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/T5_model/" class="article-date">
-  <time class="dt-published" datetime="2023-05-16T12:04:35.795Z" itemprop="datePublished">2023-05-16</time>
+    <a href="/2023/04/15/python/python%E5%9F%BA%E7%A1%80/python/" class="article-date">
+  <time class="dt-published" datetime="2023-04-15T08:56:25.000Z" itemprop="datePublished">2023-04-15</time>
 </a>
     
   </div>
@@ -316,11 +432,105 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="一、python基础语法"><a href="#一、python基础语法" class="headerlink" title="一、python基础语法"></a>一、python基础语法</h1><h2 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1.基本数据类型"></a>1.基本数据类型</h2><h3 id="（1）字符串"><a href="#（1）字符串" class="headerlink" title="（1）字符串"></a>（1）字符串</h3><h4 id="1-1-格式化操作"><a href="#1-1-格式化操作" class="headerlink" title="1.1. 格式化操作"></a>1.1. 格式化操作</h4><h5 id="s的使用"><a href="#s的使用" class="headerlink" title="%s的使用"></a>%s的使用</h5><h5 id="f字符串的使用"><a href="#f字符串的使用" class="headerlink" title="f字符串的使用"></a>f字符串的使用</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">first_name = <span class="string">&quot;haoran&quot;</span></span><br><span class="line">last_name = <span class="string">&quot;tian&quot;</span></span><br><span class="line">full_name = <span class="string">f&quot;<span class="subst">&#123;first_name&#125;</span>,<span class="subst">&#123;last_name&#125;</span>&quot;</span>    <span class="comment"># haoran,tian</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）加下划线的变量"><a href="#（2）加下划线的变量" class="headerlink" title="（2）加下划线的变量"></a>（2）加下划线的变量</h3><p>以下为GPT给出的答案<br>在Python中，以单个下划线开头的参数（如<code>_variable</code>）通常被视为“内部使用”的参数或变量。这种约定通常用于指示变量只能在模块、类或函数的内部使用，不应被外部代码使用。</p>
+<p>具体来说，以单个下划线开头的变量或参数通常具有以下含义：</p>
+<ul>
+<li><p><code>_variable</code>：这是一种常见的惯例，用于表示变量仅在其所在的模块或类的内部使用，不应被外部代码访问。但是，这只是一种惯例，实际上，这些变量仍然可以被外部代码访问和修改，只是它们的名称可能会被视为“非公开”的。</p>
+</li>
+<li><p><code>__variable</code>：以双下划线开头的变量或参数是Python中的私有变量或参数。这意味着它们只能被所在的类内部访问，不能被子类或外部代码访问。如果在子类中定义了一个同名变量或参数，它不会覆盖父类中的私有变量或参数，而是会被重命名为<code>_ClassName__variable</code>的形式。</p>
+</li>
+<li><p><code>__variable__</code>：以双下划线开头和结尾的变量或参数是Python中的特殊变量或参数。这些变量通常由Python解释器使用，例如<code>__name__</code>表示当前模块的名称，<code>__doc__</code>表示文档字符串，<code>__init__</code>表示类的构造函数等。</p>
+</li>
+<li><p><code>variable_</code>：表示该变量是一个临时变量或私有变量</p>
+</li>
+</ul>
+<p>需要注意的是，使用下划线开头的变量名或参数名并不会改变它们的作用域或行为，只是一种命名约定。因此，应该避免在代码中使用双下划线开头和结尾的变量名或参数名，除非你确实需要定义一个私有变量或参数。</p>
+<h4 id="2-1-创建列表"><a href="#2-1-创建列表" class="headerlink" title="2.1. 创建列表"></a>2.1. 创建列表</h4><p>方式1：使用python自带方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = []</span><br></pre></td></tr></table></figure>
+
+<p>方式2: 使用pytorch创建</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">list2 = torch.zeros[<span class="number">10</span>]  <span class="comment"># 长度为10，元素均为0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-添加元素"><a href="#2-2-添加元素" class="headerlink" title="2.2. 添加元素"></a>2.2. 添加元素</h4><h4 id="2-3-删除元素"><a href="#2-3-删除元素" class="headerlink" title="2.3. 删除元素"></a>2.3. 删除元素</h4><p>方式1:按照元素的值删除–<code>remove</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;22&#x27;</span>,<span class="string">&#x27;asd2&#x27;</span>]</span><br><span class="line">list1.remove[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(list1)    <span class="comment"># &gt;&gt;&gt; [&#x27;a&#x27;, &#x27;22&#x27;, &#x27;asd2&#x27;]</span></span><br><span class="line">list1.remove[<span class="string">&quot;22&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(list1)    <span class="comment"># &gt;&gt;&gt; [&#x27;a&#x27;, &#x27;asd2&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>方式2:按照索引删除元素 –<code>del</code>或<code>pop</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list2 = [<span class="number">1</span>, <span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;22&#x27;</span>,<span class="string">&#x27;asd2&#x27;</span>]</span><br><span class="line">list2.pop(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(list2)    <span class="comment"># &gt;&gt;&gt; [1, &#x27;a&#x27;, &#x27;asd2&#x27;]</span></span><br><span class="line"><span class="keyword">del</span> list2[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(list2)    <span class="comment"># &gt;&gt;&gt; [1, &#x27;asd2&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）字典dict"><a href="#（3）字典dict" class="headerlink" title="（3）字典dict"></a>（3）字典dict</h3><h3 id="（4）列表list"><a href="#（4）列表list" class="headerlink" title="（4）列表list"></a>（4）列表list</h3><p>创建定长列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一维列表</span></span><br><span class="line">list1 = [<span class="number">0</span>]*<span class="number">10</span></span><br><span class="line">list2 = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># 创建二维列表</span></span><br><span class="line">list3 = [[<span class="number">0</span>,<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-python关键字"><a href="#2-python关键字" class="headerlink" title="2.python关键字"></a>2.python关键字</h2><h3 id="（1）super的使用"><a href="#（1）super的使用" class="headerlink" title="（1）super的使用"></a>（1）super的使用</h3><p>在Python中，<code>super()</code>是一个内置函数，用于调用父类的方法。在子类的<code>__init__()</code>方法中使用<code>super()</code>可以调用父类的<code>__init__()</code>方法，以便在创建子类对象时完成父类的初始化工作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SubClass</span>(<span class="title class_ inherited__">SuperClass</span>): </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, arg1, arg2, ...</span>): </span><br><span class="line">		<span class="built_in">super</span>(SubClass, self).__init__(arg1, arg2, ...) </span><br><span class="line">			<span class="comment"># 子类特有的初始化工作</span></span><br></pre></td></tr></table></figure>
+
+<p>一般而言，我们在子类的<code>__init__()</code>方法中调用父类的<code>__init__()</code>方法时，需要将子类对象作为第一个参数传递给<code>super()</code></p>
+<h2 id="3-python内存管理"><a href="#3-python内存管理" class="headerlink" title="3.python内存管理"></a>3.python内存管理</h2><h3 id="（1）python变量"><a href="#（1）python变量" class="headerlink" title="（1）python变量"></a>（1）python变量</h3><p>python中的所有变量都是指针，指针的内存空间和数据类型无关，其内存空间保证了指向数据的内存地址</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>其中a是变量，2是一个int型的对象</p>
+<p>![image-20230124144009918](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230124144009918.png)</p>
+<h3 id="（2）python对象"><a href="#（2）python对象" class="headerlink" title="（2）python对象"></a>（2）python对象</h3><h4 id="2-1-对象的组成："><a href="#2-1-对象的组成：" class="headerlink" title="2.1. 对象的组成："></a>2.1. 对象的组成：</h4><p>对象主要由<code>内存地址，类型，值</code>构成，对象的本质是一个内存快</p>
+<ul>
+<li>identity（ID）：标识对象的“内存地址”。可以用<code>id(obj)</code>来获取</li>
+<li>type（类型）：标识对象的“类型”。可以使用<code>type(obj)</code>来获取</li>
+<li>value（值）：标识对象的“值”。可使用<code>print(obj)</code>来获取</li>
+</ul>
+<h4 id="2-2-可变对象和不可变对象"><a href="#2-2-可变对象和不可变对象" class="headerlink" title="2.2. 可变对象和不可变对象"></a>2.2. 可变对象和不可变对象</h4><p>不可变对象：bool、int、float、str、tuple、frozenset</p>
+<p>可变对象：list、set、dict</p>
+<h4 id="2-3-赋值引用"><a href="#2-3-赋值引用" class="headerlink" title="2.3. 赋值引用"></a>2.3. 赋值引用</h4><p>两个变量指向了同一个对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="number">1</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]&#125;</span><br><span class="line">b = a</span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> b)    <span class="comment"># &gt;&gt;&gt; True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a) == <span class="built_in">id</span>(b))   <span class="comment"># &gt;&gt;&gt; True</span></span><br></pre></td></tr></table></figure>
+
+<p>![image-20230124150158138](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230124150158138.png)</p>
+<h3 id="（3）浅拷贝和深拷贝"><a href="#（3）浅拷贝和深拷贝" class="headerlink" title="（3）浅拷贝和深拷贝"></a>（3）浅拷贝和深拷贝</h3><p>浅拷贝：只拷贝父对象，不拷贝父对象中的子对象</p>
+<p>深拷贝：拷贝父对象，同时，递归拷贝子对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 浅拷贝</span></span><br><span class="line">a = &#123;<span class="number">1</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]&#125;</span><br><span class="line">b = a.copy()</span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> b)    <span class="comment"># &gt;&gt;&gt; False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a) == <span class="built_in">id</span>(b))    <span class="comment"># &gt;&gt;&gt; False   </span></span><br></pre></td></tr></table></figure>
+
+<p>![image-20230124150550606](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230124150550606.png)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 深拷贝</span></span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = &#123;<span class="number">1</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]&#125;</span><br><span class="line">b = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span> (a <span class="keyword">is</span> b)   <span class="comment"># &gt;&gt;&gt; False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a) == <span class="built_in">id</span>(b))    <span class="comment"># &gt;&gt;&gt; False</span></span><br></pre></td></tr></table></figure>
+
+<p>![image-20230124150751106](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230124150751106.png)</p>
+<h2 id="4-lambda表达式"><a href="#4-lambda表达式" class="headerlink" title="4.lambda表达式"></a>4.lambda表达式</h2><p><code>lambda 变量:返回值</code><br>![[Pasted image 20230308092119.png]]</p>
+<h2 id="5-装饰器"><a href="#5-装饰器" class="headerlink" title="5.装饰器"></a>5.装饰器</h2><h3 id="（1）-property"><a href="#（1）-property" class="headerlink" title="（1）@property"></a>（1）@property</h3><p>用于将一个类内的函数看做属性</p>
+<p>调用时，可以直接使用<code>对象名.函数名</code>来得到这个函数的返回值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于将一个函数定义为属性</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span>: </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, length, width</span>):</span><br><span class="line">		self._length = length </span><br><span class="line">		self._width = width </span><br><span class="line"><span class="meta">	@property </span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">area</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="keyword">return</span> self._length * self._width </span><br><span class="line"><span class="meta">	@property </span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">perimeter</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="keyword">return</span> <span class="number">2</span> * (self._length + self._width)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">此时，可以将area和perimeter作为属性去调用</span><br><span class="line"></span><br><span class="line">r = Rectangle(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.area</span><br><span class="line"><span class="number">12.</span> = <span class="number">3</span>*<span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.perimeter</span><br><span class="line"><span class="number">14</span>  = <span class="number">2</span>*(<span class="number">3</span>+<span class="number">4</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="python数据库连接"><a href="#python数据库连接" class="headerlink" title="python数据库连接"></a>python数据库连接</h1><h2 id="1-pymysql"><a href="#1-pymysql" class="headerlink" title="1.pymysql"></a>1.pymysql</h2><h3 id="（1）连接方式"><a href="#（1）连接方式" class="headerlink" title="（1）连接方式"></a>（1）连接方式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">mysql_info = &#123;</span><br><span class="line">    <span class="string">&#x27;host&#x27;</span>: <span class="string">&#x27;222.20.95.239&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;port&#x27;</span>: <span class="number">3300</span>,</span><br><span class="line">    <span class="string">&#x27;user&#x27;</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;sunrui00&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;db&#x27;</span>: <span class="string">&#x27;smoke_enshi&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">mysql_db = pymysql.connect(**mysql_info)</span><br><span class="line">cur = mysql_db.cursor()</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）查询语句"><a href="#（2）查询语句" class="headerlink" title="（2）查询语句"></a>（2）查询语句</h3><h4 id="2-1-逗号和百分号的区别"><a href="#2-1-逗号和百分号的区别" class="headerlink" title="2.1. 逗号和百分号的区别"></a>2.1. 逗号和百分号的区别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">&quot;select count(*) from person_new_ids where jobname_id = %s&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>,</code>和<code>%</code>的区别</p>
+<ul>
+<li><code>,</code>用于表示python元组</li>
+<li><code>%</code>用于表示字符串拼接</li>
+</ul>
+<h4 id="2-2-参数化查询"><a href="#2-2-参数化查询" class="headerlink" title="2.2. 参数化查询"></a>2.2. 参数化查询</h4><p>参数化查询是指将数据以参数的形式传入执行函数中，而不是传一整条包含数据的sql语句</p>
+<p>使用逗号是参数参数，而百分号是非参数查询</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 非参数化查询，实际只传递了一个参数，为整条语句</span></span><br><span class="line">cur.execute(sql % <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;非参数化&#x27;</span>, cur.fetchone())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数化参数，传递了两个参数</span></span><br><span class="line">cur.execute(sql, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;参数化&#x27;</span>, cur.fetchone())</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-参数化查询的好处–防止sql注入"><a href="#2-3-参数化查询的好处–防止sql注入" class="headerlink" title="2.3. 参数化查询的好处–防止sql注入"></a>2.3. 参数化查询的好处–防止sql注入</h4><h5 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下两句话是等价的，也就是说作为sql语句的占位符，问号和百分号的功能相同</span></span><br><span class="line">cursor.execute(<span class="string">&#x27;insert into user (name,password) value (?,?)&#x27;</span>,(name,password))</span><br><span class="line">cursor.execute(<span class="string">&#x27;insert into user (name,password) value (%s,%s)&#x27;</span>,(name,password))</span><br></pre></td></tr></table></figure>
+
+<h5 id="防止注入"><a href="#防止注入" class="headerlink" title="防止注入"></a>防止注入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用字符串拼接的写法会导致sql注入，不要这样写</span></span><br><span class="line">cursor.execute(<span class="string">&#x27;insert into user (name,password) value (?,?)&#x27;</span>%(name,password))</span><br><span class="line">cursor.execute(<span class="string">&#x27;insert into user (name,password) value (%s,%s)&#x27;</span>%(name,password))</span><br></pre></td></tr></table></figure>
+
+<h5 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h5><p>python并不会对mysql预编译，“参数化”是在MysqlDB中通过转义字符直接将他们插入到查询中</p>
+<p>因此，unicode字符串会经过两个中间表示（编码字符串，转义编码字符串）才能被数据库接收。</p>
+<p>也就是说，我们传入的参数，并不是直接拼接到sql语句中，而是经过字符转换，因此参数化查询可以有效防止sql注入</p>
+<h2 id="使用过程中的问题"><a href="#使用过程中的问题" class="headerlink" title="使用过程中的问题"></a>使用过程中的问题</h2><h1 id="flask框架"><a href="#flask框架" class="headerlink" title="flask框架"></a>flask框架</h1><h2 id="1-g"><a href="#1-g" class="headerlink" title="1.g"></a>1.g</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> g</span><br></pre></td></tr></table></figure>
+
+<p>g是单次请求中的全局变量，能在单次请求中调用，但是和其他请求之间是相互隔离的</p>
+<p>g在单次请求中定一些值和操作，随着本次请求结束而销毁</p>
+<p>WWWWWWWW<br>EEEE<br>QQQQQ</p>
+<p>RRR</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/16/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/T5_model/" data-id="clkm8pwy6001cdmfy7hdcdu96" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/04/15/python/python%E5%9F%BA%E7%A1%80/python/" data-id="clkm8sccd0009z6fy6oln0ejt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -332,10 +542,10 @@
 
 
   
-    <article id="post-笔记/git/pycharm_git" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-python/python基础/python常见操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/05/14/%E7%AC%94%E8%AE%B0/git/pycharm_git/" class="article-date">
-  <time class="dt-published" datetime="2023-05-14T09:42:41.050Z" itemprop="datePublished">2023-05-14</time>
+    <a href="/2023/04/11/python/python%E5%9F%BA%E7%A1%80/python%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2023-04-11T14:49:41.000Z" itemprop="datePublished">2023-04-11</time>
 </a>
     
   </div>
@@ -344,415 +554,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="一、小技巧"><a href="#一、小技巧" class="headerlink" title="一、小技巧"></a>一、小技巧</h2><h3 id="1-生成requirement-txt"><a href="#1-生成requirement-txt" class="headerlink" title="1.生成requirement.txt"></a>1.生成<code>requirement.txt</code></h3><ul>
+<li>安装<code>pipreqs</code>库:</li>
+</ul>
+<p><code>pip install pipreqs</code></p>
+<ul>
+<li>在当前目录生成：</li>
+</ul>
+<p><code>pipreqs ./ --encoding=utf8 --force</code></p>
+<h2 id="二、python文件操作"><a href="#二、python文件操作" class="headerlink" title="二、python文件操作"></a>二、python文件操作</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/14/%E7%AC%94%E8%AE%B0/git/pycharm_git/" data-id="clkm8pwxp000fdmfycext2y6u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python/深度学习/tqdm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/11/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tqdm/" class="article-date">
-  <time class="dt-published" datetime="2023-05-11T05:38:48.793Z" itemprop="datePublished">2023-05-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="tqdm"><a href="#tqdm" class="headerlink" title="tqdm"></a>tqdm</h2><h2 id="一-导入"><a href="#一-导入" class="headerlink" title="一 导入"></a>一 导入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="二-作用"><a href="#二-作用" class="headerlink" title="二 作用"></a>二 作用</h2><p>tqdm主要是用于在jupyter中展示循环的进度</p>
-<h2 id="三-示例"><a href="#三-示例" class="headerlink" title="三 示例"></a>三 示例</h2><p>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test_set_similarity = [cosine_sim(t1, t2) <span class="keyword">for</span> t1, t2 <span class="keyword">in</span> tqdm(<span class="built_in">zip</span>(test1.content_en, test2.translated))]</span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>, <span class="number">8</span>))</span><br><span class="line">sns.distplot(test_set_similarity);</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p>![image-20230511134037494](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230511134037494.png)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/11/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tqdm/" data-id="clkm8pwy50018dmfy0svkb0g5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python/python基础/python2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/07/python/python%E5%9F%BA%E7%A1%80/python2/" class="article-date">
-  <time class="dt-published" datetime="2023-05-07T10:01:59.000Z" itemprop="datePublished">2023-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="第一章-数据类型"><a href="#第一章-数据类型" class="headerlink" title="第一章 数据类型"></a>第一章 数据类型</h2><h3 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1.字符串"></a>1.字符串</h3><h4 id="（1）字符串的特殊表示"><a href="#（1）字符串的特殊表示" class="headerlink" title="（1）字符串的特殊表示"></a>（1）字符串的特殊表示</h4><ul>
-<li><code>u</code>表示unicode</li>
-<li><code>b</code>表示字节字符串（二进制数据）</li>
-<li><code>f</code>最常用，表示格式化字符串，即<code>f-string</code></li>
-<li><code>r</code>表示原始字符串<code>raw string</code>，这样的字符串中的转义字符会被保留</li>
-</ul>
-<h2 id="第二章-文件操作"><a href="#第二章-文件操作" class="headerlink" title="第二章 文件操作"></a>第二章 文件操作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-读取文件"><a href="#1-读取文件" class="headerlink" title="1.读取文件"></a>1.读取文件</h3><h4 id="（1）open"><a href="#（1）open" class="headerlink" title="（1）open()"></a>（1）<code>open()</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;文件路径/文件名&#x27;</span>, encoding = <span class="string">&#x27;utf-8&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">  corpus = f.read().strip(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"><span class="comment"># 使用with时，python会自动判断，在不需要使用文件时自动关闭文件</span></span><br><span class="line"><span class="comment"># 也就是说，不需要写f.close()</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="（2）read"><a href="#（2）read" class="headerlink" title="（2）read()"></a>（2）<code>read()</code></h4><ul>
-<li><code>read()</code>方法用于读取整个文件，将文件的内容放入到一个<code>字符串</code>变量中</li>
-<li>如果文件过大，不能使用</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">#### （3）`readlines()`</span><br><span class="line"></span><br><span class="line">- 将结果按行读取，并放到一个列表中，列表中的每个元素是一行，每个元素的末尾都有有`\n`座位换行符</span><br><span class="line">- 这种方式方便使用`strip()`，可以将每行中不想要的内容删掉</span><br><span class="line"></span><br><span class="line">#### （4）`readline()`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 2.`strip( )`去掉首、末位置不想要的内容</span><br><span class="line"></span><br><span class="line">- 在不使用关键词时，`strip( )`会默认清理掉文本字符串开始和末尾的空格</span><br><span class="line">- 在`strip()`的参数中添加任何内容，都会在字符串的开始和末尾去掉参数中的内容</span><br><span class="line">- 可以连续使用`strip()`来连续删除不想要的内容`line.strip(&#x27;\n&#x27;).strip(&#x27;\t&#x27;)`</span><br><span class="line">- 可以使用`lstrip()`和`rstrip()`分别删除字符串左侧（开头的内容）或字符串右侧（结尾）的内容</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">SELECT sr.score_person_num, table1.tot AS `学`, table2.tot AS `丢雷老母`, table3.tot AS `写`, table4.tot AS `用`, </span><br><span class="line">       table5.tot AS `风控`, table6.tot AS `改进`, table7.tot AS `效率`, table8.tot AS `创新`, table9.tot AS `素质`, </span><br><span class="line">       table10.tot AS `素养`, table12.tot AS `个人`, table14.tot AS `程子队展得`, table15.tot AS `我真是日了狗了`</span><br><span class="line">FROM score_record AS sr</span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 1)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table1 ON sr.score_person_num = table1.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 2)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table2 ON sr.score_person_num = table2.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 3)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table3 ON sr.score_person_num = table3.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 4)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table4 ON sr.score_person_num = table4.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 5)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table5 ON sr.score_person_num = table5.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 6)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table6 ON sr.score_person_num = table6.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 7)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table7 ON sr.score_person_num = table7.score_person_num </span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT score_person_num, SUM(value) AS tot </span><br><span class="line">    FROM score_record </span><br><span class="line">    WHERE score_item_id IN (SELECT id FROM score_item WHERE score_categoty_id = 8)</span><br><span class="line">    GROUP BY score_person_num</span><br><span class="line">) AS table</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-split"><a href="#3-split" class="headerlink" title="3.split()"></a>3.<code>split()</code></h3><h3 id="4-使用yaml文件"><a href="#4-使用yaml文件" class="headerlink" title="4.使用yaml文件"></a>4.使用<code>yaml</code>文件</h3><ul>
-<li>通常情况下，<code>yaml</code>文件用来存放参数，通常会写作<code>config.yaml</code></li>
-<li><code>yaml</code>文件使用缩进表示层级关系，层级关系只能使用空格，不能使用tab</li>
-</ul>
-<h2 id="第三章-关键词"><a href="#第三章-关键词" class="headerlink" title="第三章 关键词"></a>第三章 关键词</h2><h3 id="1-with"><a href="#1-with" class="headerlink" title="1.with"></a>1.with</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>是一种上下文管理协议</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-any-if-any"><a href="#2-any-if-any" class="headerlink" title="2.any&#x2F;if any"></a>2.any&#x2F;if any</h3><p><code>if any</code>是一个条件判断语句，用于检查可迭代对象中是否存在某一元素符合给定的条件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">any</span>(condition <span class="keyword">for</span> item <span class="keyword">in</span> iterable):</span><br><span class="line">  <span class="comment"># code</span></span><br></pre></td></tr></table></figure>
-
-<p>例1（简单用例）：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">any</span>(num &gt; <span class="number">3</span> <span class="keyword">for</span> num <span class="keyword">in</span> numbers):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;存在大于3的数字&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;不存在大于3的数字&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>例2（BERT用例）：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">any</span>(</span><br><span class="line">	n <span class="keyword">in</span> [<span class="string">&quot;adam_v&quot;</span>, <span class="string">&quot;adam_m&quot;</span>, <span class="string">&quot;AdamWeightDecayOptimizer&quot;</span>, <span class="string">&quot;AdamWeightDecayOptimizer_1&quot;</span>,<span class="string">&quot;global_step&quot;</span>]</span><br><span class="line">  <span class="keyword">for</span> n <span class="keyword">in</span> name</span><br><span class="line">):</span><br><span class="line">  logging.info(<span class="string">f&quot;Skipping <span class="subst">&#123;<span class="string">&#x27;/&#x27;</span>.join(name)&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="keyword">continue</span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-<h3 id="3-getattr"><a href="#3-getattr" class="headerlink" title="3.getattr"></a>3.getattr</h3><p><code>getattr</code>用于获取对象的属性值或方法，用法为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">getattr</span>(<span class="built_in">object</span>, attribute[, default])</span><br></pre></td></tr></table></figure>
-
-<p><code>object</code>– 对象</p>
-<p><code>attribute</code> – 要获取的属性或方法的名称</p>
-<p><code>default</code> – 可选参数，在属性或方法不存在时，返回的默认值，默认为None</p>
-<p>例（Bert例）：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BertEmbeddings</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, config</span>):</span><br><span class="line">    ...</span><br><span class="line">    self.position_embedding_type = <span class="built_in">getattr</span>(config, <span class="string">&quot;position_embedding_type&quot;</span>, <span class="string">&quot;absolute&quot;</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第四章-面向对象"><a href="#第四章-面向对象" class="headerlink" title="第四章 面向对象"></a>第四章 面向对象</h2><h3 id="1-类的继承"><a href="#1-类的继承" class="headerlink" title="1.类的继承"></a>1.类的继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">father</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.a = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">son</span>(<span class="title class_ inherited__">father</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 子类的初始化继承了父类的初始化</span></span><br><span class="line">        <span class="built_in">super</span>(son, self).__init__()</span><br><span class="line">        self.b = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    s = son()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;s.a: &quot;</span>,s.a)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;s.b: &quot;</span>,s.b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第五章-模块"><a href="#第五章-模块" class="headerlink" title="第五章 模块"></a>第五章 模块</h2><h3 id="1-logging"><a href="#1-logging" class="headerlink" title="1.logging"></a>1.logging</h3><p>常用的函数：<code>debug(), info(), warning(), error(), critical()</code></p>
-<p>![image-20230418151305777](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230418151305777.png)</p>
-<p>以恩施项目中的配置文件<code>config.py</code>为例</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Config</span>():</span><br><span class="line">    <span class="comment"># token设置</span></span><br><span class="line">    ENCRYPTION_KEY = <span class="string">&#x27;enshi_smoke&#x27;</span></span><br><span class="line">    TOKEN_VALID_SECOND = <span class="number">3600</span></span><br><span class="line">    <span class="comment"># log设置</span></span><br><span class="line">    LOG_LEVEL = logging.INFO</span><br><span class="line">    LOG_SAVE_DIR = <span class="string">&#x27;logs&#x27;</span></span><br><span class="line">    LOG_FILE_NAME = <span class="string">&#x27;zssr.log&#x27;</span></span><br><span class="line">    <span class="comment"># Bytes</span></span><br><span class="line">    LOG_FILE_SIZE = <span class="number">100</span> * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line">    LOG_FILE_NUM = <span class="number">100</span></span><br><span class="line">    <span class="comment"># 数据库存储加密设置</span></span><br><span class="line">    AES_ENCRYPTION_KEY = <span class="string">&#x27;enshi_smoke&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-argparse"><a href="#2-argparse" class="headerlink" title="2.argparse"></a>2.argparse</h3><p><code>argparse</code>是python标准库中的命令行解析模块</p>
-<ul>
-<li>主要的作用是，当我们用过命令行运行python文件时，可以在其中通过设定好的参数名称添加参数来运行</li>
-<li>比如，<code>python demo01.py --name tianhaoran --sex male --age 26</code></li>
-<li>通过这样的方式，给python程序中的某些参数赋值</li>
-</ul>
-<p>代码样例：</p>
-<ul>
-<li>csdn博客示例</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    parser = argparse.ArgumentParser(description=<span class="string">&quot;Demo of argparse&quot;</span>)</span><br><span class="line">    <span class="comment"># 当我们在python &lt;文件名&gt; 后面输入-n或者--name时，后面跟上的参数应该是名字</span></span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-n&#x27;</span>,<span class="string">&#x27;--name&#x27;</span>, default=<span class="string">&#x27; Li &#x27;</span>)</span><br><span class="line">    <span class="comment"># 同理，可以通过-y或--year来输入年龄</span></span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-y&#x27;</span>,<span class="string">&#x27;--year&#x27;</span>, default=<span class="string">&#x27;20&#x27;</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    <span class="built_in">print</span>(args)</span><br><span class="line">    name = args.name</span><br><span class="line">    year = args.year</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello &#123;&#125;  &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name,year))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>paddle项目示例</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 3.os模块</span><br><span class="line"></span><br><span class="line">`os = operating system`，主要用于和操作系统交互，是python的自带模块</span><br><span class="line"></span><br><span class="line">- 使用os模块：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">import os  # 注意不要写成from os import ... 不然可能会导致os中的函数与python中的函数冲突</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>os模块的常用函数:</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd()  <span class="comment"># 获取当前的路径</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">&#x27;path&#x27;</span>)  <span class="comment"># 切换路径</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>os.path</code>模块</p>
-<ul>
-<li><p>使用<code>os.path</code>获取当前环境的路径</p>
-</li>
-<li><p>使用<code>os.path.abspath(相对路径)</code>来获得某个相对路径对应的绝对路径，如下</p>
-</li>
-<li><pre><code class="python">  # 获得当前路径的绝对路径：
-  print(os.path.abspath(&#39;./&#39;))  # 得到当前的绝对路径
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 4.typing模块</span><br><span class="line"></span><br><span class="line">- 允许python给出函数的参数、返回值类型</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">def 函数名(参数: 类型) -&gt; 返回值类型:</span><br><span class="line">  pass</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-<li><p>运行给变量直接写出类型：</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名: 数据类型 = 值</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="第六章-函数"><a href="#第六章-函数" class="headerlink" title="第六章 函数"></a>第六章 函数</h2><h3 id="1-函数的参数"><a href="#1-函数的参数" class="headerlink" title="1.函数的参数"></a>1.函数的参数</h3><p>对于python中内置的函数，一般会有三个参数<code>self, *args, **kwargs</code></p>
-<ul>
-<li><code>*args</code> 属于python的<code>unpacking</code>，用于将多个参数打包成<code>元组</code>，适用于调用时直接写<code>实参</code>的情况</li>
-<li><code>**kwargs</code>用于将多个参数打包成<code>字典</code>，适用于调用时写<code>形参=实参</code>的情况</li>
-</ul>
-<p>举例：一下是python内置类<code>argparse</code>中的<code>add_argument</code>函数</p>
-<ul>
-<li><code>dest </code>在中文中指的是<code>目标对象</code> </li>
-<li><code>dest supplied twice for positional argument</code>的意思是<code>为某个位置的参数提供了两次目标对象</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add_argument</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    add_argument(dest, ..., name=value, ...)</span></span><br><span class="line"><span class="string">    add_argument(option_string, option_string, ..., name=value, ...)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># if no positional args are supplied or only one is supplied and</span></span><br><span class="line">    <span class="comment"># it doesn&#x27;t look like an option string, parse a positional</span></span><br><span class="line">    <span class="comment"># argument</span></span><br><span class="line">    chars = self.prefix_chars</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> args <span class="keyword">or</span> <span class="built_in">len</span>(args) == <span class="number">1</span> <span class="keyword">and</span> args[<span class="number">0</span>][<span class="number">0</span>] <span class="keyword">not</span> <span class="keyword">in</span> chars:</span><br><span class="line">        <span class="keyword">if</span> args <span class="keyword">and</span> <span class="string">&#x27;dest&#x27;</span> <span class="keyword">in</span> kwargs:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&#x27;dest supplied twice for positional argument&#x27;</span>)</span><br><span class="line">        kwargs = self._get_positional_kwargs(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># otherwise, we&#x27;re adding an optional argument</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        kwargs = self._get_optional_kwargs(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># if no default was supplied, use the parser-level default</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;default&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> kwargs:</span><br><span class="line">        dest = kwargs[<span class="string">&#x27;dest&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> dest <span class="keyword">in</span> self._defaults:</span><br><span class="line">            kwargs[<span class="string">&#x27;default&#x27;</span>] = self._defaults[dest]</span><br><span class="line">        <span class="keyword">elif</span> self.argument_default <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            kwargs[<span class="string">&#x27;default&#x27;</span>] = self.argument_default</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create the action object, and add it to the parser</span></span><br><span class="line">    action_class = self._pop_action_class(kwargs)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">callable</span>(action_class):</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&#x27;unknown action &quot;%s&quot;&#x27;</span> % (action_class,))</span><br><span class="line">    action = action_class(**kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># raise an error if the action type is not callable</span></span><br><span class="line">    type_func = self._registry_get(<span class="string">&#x27;type&#x27;</span>, action.<span class="built_in">type</span>, action.<span class="built_in">type</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">callable</span>(type_func):</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&#x27;%r is not callable&#x27;</span> % (type_func,))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> type_func <span class="keyword">is</span> FileType:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&#x27;%r is a FileType class object, instance of it&#x27;</span></span><br><span class="line">                         <span class="string">&#x27; must be passed&#x27;</span> % (type_func,))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># raise an error if the metavar does not match the type</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">hasattr</span>(self, <span class="string">&quot;_get_formatter&quot;</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self._get_formatter()._format_args(action, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">except</span> TypeError:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&quot;length of metavar tuple does not match nargs&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> self._add_action(action)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第七章-python解释器"><a href="#第七章-python解释器" class="headerlink" title="第七章 python解释器"></a>第七章 python解释器</h2><h3 id="1-使用yaml文件"><a href="#1-使用yaml文件" class="headerlink" title="1.使用yaml文件"></a>1.使用yaml文件</h3><h4 id="（1）yaml文件是什么"><a href="#（1）yaml文件是什么" class="headerlink" title="（1）yaml文件是什么"></a>（1）yaml文件是什么</h4><p>例1：下面是一个用于深度学习的yaml文件</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></span><br><span class="line"><span class="comment"># you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment"># You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></span><br><span class="line"><span class="comment"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></span><br><span class="line"><span class="comment"># See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment"># limitations under the License.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">runner:</span></span><br><span class="line">  <span class="attr">train_data_dir:</span> <span class="string">&quot;../data/train&quot;</span></span><br><span class="line">  <span class="attr">train_reader_path:</span> <span class="string">&quot;reader&quot;</span>  <span class="comment"># importlib format</span></span><br><span class="line">  <span class="attr">train_batch_size:</span> <span class="number">128</span></span><br><span class="line">  <span class="attr">model_save_path:</span> <span class="string">&quot;output_model_recall&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">use_gpu:</span> <span class="literal">True</span></span><br><span class="line">  <span class="attr">epochs:</span> <span class="number">5</span></span><br><span class="line">  <span class="attr">print_interval:</span> <span class="number">20</span></span><br><span class="line">  </span><br><span class="line">  <span class="attr">test_data_dir:</span> <span class="string">&quot;../data/test&quot;</span></span><br><span class="line">  <span class="attr">infer_reader_path:</span> <span class="string">&quot;reader&quot;</span>  <span class="comment"># importlib format</span></span><br><span class="line">  <span class="attr">infer_batch_size:</span> <span class="number">128</span></span><br><span class="line">  <span class="attr">infer_load_path:</span> <span class="string">&quot;output_model_recall&quot;</span></span><br><span class="line">  <span class="attr">infer_start_epoch:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">infer_end_epoch:</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">runner_result_dump_path:</span> <span class="string">&quot;recall_infer_result&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hyper parameters of user-defined network</span></span><br><span class="line"><span class="attr">hyper_parameters:</span></span><br><span class="line">  <span class="comment"># optimizer config</span></span><br><span class="line">  <span class="attr">optimizer:</span></span><br><span class="line">    <span class="attr">class:</span> <span class="string">Adam</span></span><br><span class="line">    <span class="attr">learning_rate:</span> <span class="number">0.001</span></span><br><span class="line">  <span class="comment"># user-defined &lt;key, value&gt; pairs</span></span><br><span class="line">  <span class="attr">sparse_feature_number:</span> <span class="number">600000</span></span><br><span class="line">  <span class="attr">sparse_feature_dim:</span> <span class="number">9</span></span><br><span class="line">  <span class="attr">dense_input_dim:</span> <span class="number">13</span></span><br><span class="line">  <span class="attr">fc_sizes:</span> [<span class="number">512</span>, <span class="number">256</span>, <span class="number">128</span>, <span class="number">32</span>]</span><br></pre></td></tr></table></figure>
-
-<p>使用该yaml文件时，可以在命令行输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -u trianer.py -m config.yaml</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="（2）python使用yaml"><a href="#（2）python使用yaml" class="headerlink" title="（2）python使用yaml"></a>（2）python使用yaml</h4><ul>
-<li>安装yaml</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install yaml</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>读取config文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">config_path = <span class="string">&#x27;./config.yaml&#x27;</span></span><br><span class="line">f = <span class="built_in">open</span>(config_path, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)  <span class="comment"># 用这种方法读取出来的yaml文件是str，不方便使用</span></span><br><span class="line">config = f.read()</span><br><span class="line">config = yaml.load(config, Loader=yaml.FullLoader)   <span class="comment"># 使用yaml.load转换成字典</span></span><br><span class="line">use_gpu = config[<span class="string">&#x27;runner&#x27;</span>][<span class="string">&#x27;use_gpu&#x27;</span>]</span><br><span class="line">train_data_dir = config[<span class="string">&#x27;runner&#x27;</span>][<span class="string">&#x27;train_data_dir&#x27;</span>]</span><br><span class="line">epochs = config[<span class="string">&#x27;runner&#x27;</span>][<span class="string">&#x27;epochs&#x27;</span>]</span><br><span class="line">print_interval = config[<span class="string">&#x27;runner&#x27;</span>][<span class="string">&#x27;print_interval&#x27;</span>]</span><br><span class="line">model_save_path = config[<span class="string">&#x27;runner&#x27;</span>][<span class="string">&#x27;model_save_path&#x27;</span>]    </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="第八章-日志"><a href="#第八章-日志" class="headerlink" title="第八章 日志"></a>第八章 日志</h2><h3 id="1-日志的导入"><a href="#1-日志的导入" class="headerlink" title="1.日志的导入"></a>1.日志的导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br></pre></td></tr></table></figure>
-
-<p><code>logging</code>是python自带的包</p>
-<h3 id="2-日志的格式设置"><a href="#2-日志的格式设置" class="headerlink" title="2.日志的格式设置"></a>2.日志的格式设置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig(</span><br><span class="line">		<span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(levelname)s - %(message)s&#x27;</span></span><br><span class="line">  	level=logging.INGO</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>format是日志的格式</p>
-<ul>
-<li>分别用字符串的格式展示了时间，日志的级别名称和日志信息，比如：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2023-04-22 13:21:30,875 - INFO - **************common.configs**********</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>level = logging.INFO</code>表示日志的级别是INFO，</li>
-<li>日志的级别共分为5个等级，从最详细，到最不详细分别为：<ul>
-<li>DEBUG：全部信息</li>
-<li>INFO：重要信息</li>
-<li>WARNING：警告</li>
-<li>ERROR：错误</li>
-<li>CRITICAL：严重错误</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="第九章-lambda表达式"><a href="#第九章-lambda表达式" class="headerlink" title="第九章 lambda表达式"></a>第九章 lambda表达式</h2><p>常规的写法为<code>lambda 变量: 返回值</code></p>
-<p>![Pasted image 20230308092119](&#x2F;Users&#x2F;tianhaoran&#x2F;Library&#x2F;Mobile Documents&#x2F;iCloud<del>md</del>obsidian&#x2F;Documents&#x2F;obsidian_mac&#x2F;图片&#x2F;Pasted image 20230308092119.png)</p>
-<h3 id="1-常见示例"><a href="#1-常见示例" class="headerlink" title="1.常见示例"></a>1.常见示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_train = pd.read_csv(<span class="string">&#x27;./data/train.csv&#x27;</span>)</span><br><span class="line">df_train[<span class="string">&#x27;Num_words_text&#x27;</span>] = df_train[<span class="string">&#x27;text&#x27;</span>].apply(<span class="keyword">lambda</span> x: <span class="built_in">len</span>(<span class="built_in">str</span>(x).split())) </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>首先读取一个csv文件</li>
-<li>之后将其按照正则表达式<code>lambda x: len(str(x).split())</code>进行处理</li>
-<li>也就是根据输入的<code>x</code>返回<code>x的长度</code></li>
-<li>这样就将<code>text</code>列的长度保存在了<code>num_words_text</code>列中</li>
-</ul>
-<h2 id="第十章-导入包"><a href="#第十章-导入包" class="headerlink" title="第十章 导入包"></a>第十章 导入包</h2><h3 id="常见语法"><a href="#常见语法" class="headerlink" title="常见语法"></a>常见语法</h3><ul>
-<li>直接导入</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pf</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>from导入</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="comment"># 效果等同于 import torch.nn as nn</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>导入当前文件夹的内容</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pythonfile</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>导入上一级文件夹的内容</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .. <span class="keyword">import</span> pythonfile1  <span class="comment"># 从上一级目录导入pythonfile1.py</span></span><br><span class="line"><span class="keyword">from</span> ..folder <span class="keyword">import</span> pythonfile2  <span class="comment"># 从上一级目录下的folder文件夹中导入pythonfile2</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>导入上两级文件夹的内容</li>
-</ul>
-<p>多用一个<code>.</code>，其他一样</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ... <span class="keyword">import</span> pythonfile3</span><br><span class="line"><span class="keyword">from</span> ...folder <span class="keyword">import</span> pythonfile4</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>导入时的二级目录和一级目录之间用<code>.</code>隔开，而不是斜线</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ...folder.subfolder <span class="keyword">import</span> pythonfile5</span><br></pre></td></tr></table></figure>
-
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><img src="C:\Users\ALIENWARE\AppData\Roaming\Typora\typora-user-images\image-20230507124737214.png" alt="image-20230507124737214"></p>
-<h2 id="第十一章-特殊关键词"><a href="#第十一章-特殊关键词" class="headerlink" title="第十一章 特殊关键词"></a>第十一章 特殊关键词</h2><h3 id="1-any"><a href="#1-any" class="headerlink" title="1.any"></a>1.any</h3><p>用于判断一个<code>iterable</code>中有没有除了<code>0, None, False, None</code>以外的其他值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">any</span>(num % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">for</span> num <span class="keyword">in</span> numbers):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;列表中存在偶数&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;列表中不存在偶数&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h2 id="第十二章-装饰器"><a href="#第十二章-装饰器" class="headerlink" title="第十二章 装饰器"></a>第十二章 装饰器</h2><h3 id="1-dataclass"><a href="#1-dataclass" class="headerlink" title="1.@dataclass"></a>1.@dataclass</h3><p>例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span>:</span><br><span class="line">  a: <span class="built_in">int</span> </span><br><span class="line">  b: <span class="built_in">int</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，a和b都将包含在添加的<code>__init__()</code>方法中，他们将被定义为:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, a:<span class="built_in">int</span>, b:<span class="built_in">int</span>=<span class="number">0</span></span>):</span><br></pre></td></tr></table></figure>
-
-<p>意思就是类中的变量会自动写到init方法中，在初始化对象时，直接赋值给对象，从而达到了简化代码的效果</p>
-<p>如果用init函数，就需要这样写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,a,b</span>):</span><br><span class="line">    self.a = a</span><br><span class="line">    self.b = b</span><br></pre></td></tr></table></figure>
-
-<p>如果在需要初始化变量很多的情况下，就会更麻烦</p>
-<h3 id="2-rpc"><a href="#2-rpc" class="headerlink" title="2.@rpc"></a>2.@rpc</h3><p><code>@rpc</code>是一个装饰器，用于创建远程过程调用（Remote Procedure Call，RPC）服务</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/07/python/python%E5%9F%BA%E7%A1%80/python2/" data-id="clkm8pwxy000zdmfycx9g7kge" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-笔记/论文/transformer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/02/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/transformer/" class="article-date">
-  <time class="dt-published" datetime="2023-05-02T09:59:36.231Z" itemprop="datePublished">2023-05-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/02/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87/transformer/" data-id="clkm8pwxv000rdmfy8lcxel0w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python/NLP/NLP基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/02/python/NLP/NLP%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time class="dt-published" datetime="2023-05-02T08:41:54.225Z" itemprop="datePublished">2023-05-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="一-文本标记"><a href="#一-文本标记" class="headerlink" title="一 文本标记"></a>一 文本标记</h2><h3 id="1-特殊符号"><a href="#1-特殊符号" class="headerlink" title="1.特殊符号"></a>1.特殊符号</h3><ul>
-<li><code>&lt;PAD&gt;</code>：用于填充序列，使其长度一致。在序列长度不一致的情况下，可以使用<PAD>符号将序列填充到相同长度，便于进行批量处理。</li>
-<li><code>&lt;UNK&gt;</code>：表示未知的词或符号，常用于处理未出现过的单词或符号。在进行文本处理时，会遇到一些未见过的单词或符号，这时可以使用<UNK>符号来代替这些未知的单词或符号。</li>
-<li><code>&lt;EOS&gt;</code>：用于表示句子的结束。在进行文本生成任务时，可以使用<EOS>符号来表示生成的文本已经结束，避免模型继续生成无意义的文本。</li>
-<li><code>&lt;BOS&gt;</code>：用于表示句子的开始。在进行文本生成任务时，可以使用<BOS>符号来表示文本的开始，帮助模型生成合理的文本。</li>
-<li><code>&lt;SEP&gt;</code>：用于分隔不同的句子或文本片段。在进行文本分类、命名实体识别、问答等任务时，可以使用<SEP>符号来分隔不同的句子或文本片段，便于模型理解语义和句子之间的关系。</li>
-<li><code>&lt;CLS&gt;</code>：用于表示句子的类别或标签。在进行文本分类任务时，可以使用<CLS>符号来表示句子的类别或标签，帮助模型进行分类。</li>
-</ul>
-<h3 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2.使用方法"></a>2.使用方法</h3><p>CLS和BERT的使用</p>
-<p>假设我们有两个句子：</p>
-<p>句子1：我喜欢看电影。</p>
-<p>句子2：你呢？</p>
-<p>我们可以将这两个句子连接在一起，形成一个输入序列：</p>
-<p>[CLS] 我喜欢看电影。 [SEP] 你呢？ [SEP]</p>
-<p>在这个序列中，[CLS]标记表示句子的开头，[SEP]标记则用于分隔两个句子。整个序列可以作为BERT模型的输入，模型会自动学习句子之间的关系和语义信息。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/02/python/NLP/NLP%E5%9F%BA%E7%A1%80/" data-id="clkm8pwxw000vdmfy00in2pfn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python/常用库/openAI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/02/python/%E5%B8%B8%E7%94%A8%E5%BA%93/openAI/" class="article-date">
-  <time class="dt-published" datetime="2023-05-02T08:09:44.677Z" itemprop="datePublished">2023-05-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-mag"><a href="#1-mag" class="headerlink" title="1.mag"></a>1.mag</h2><h3 id="（1）简介"><a href="#（1）简介" class="headerlink" title="（1）简介"></a>（1）简介</h3><p>在深度学习中，”mag”是一个由OpenAI开发的Python库，用于简化机器学习实验和开发工作流程。Mag中包含了许多便捷的功能和工具，可以帮助用户更轻松地进行模型训练、调试、可视化和部署。</p>
-<p>Mag库的一些主要功能包括：</p>
-<ol>
-<li>自动化模型训练：Mag使模型训练过程更加简单，可以根据需要自动调整超参数、记录实验结果、可视化训练进度等。</li>
-<li>模型可视化：Mag提供了可视化工具，可以帮助用户更好地理解和分析模型的性能、结构和特征。</li>
-<li>实验管理：Mag可以帮助用户管理不同的实验，并保存实验结果、模型权重和代码等信息。</li>
-<li>代码重用：Mag提供了一系列通用的模型组件和工具，可以帮助用户更轻松地重用代码和构建复杂的模型。</li>
-</ol>
-<p>总之，Mag是一个强大而易于使用的深度学习工具库，可以帮助用户更快速、高效地进行模型开发和实验。</p>
-<h3 id="（2）代码"><a href="#（2）代码" class="headerlink" title="（2）代码"></a>（2）代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/ex4sperans/maggot">https://github.com/ex4sperans/maggot</a></p>
-<h3 id="（3）安装"><a href="#（3）安装" class="headerlink" title="（3）安装"></a>（3）安装</h3><p><code>pip install maggot</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/02/python/%E5%B8%B8%E7%94%A8%E5%BA%93/openAI/" data-id="clkm8pwxw000udmfygztic67f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/04/11/python/python%E5%9F%BA%E7%A1%80/python%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/" data-id="clkm8sccf000bz6fy2fib3x3l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -768,7 +582,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 </section>
@@ -787,7 +601,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
     </div>
   </div>
 
